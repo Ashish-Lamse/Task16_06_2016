@@ -1,0 +1,37 @@
+.todoSelect{
+    margin-left: -35px;
+    width: 230px;
+}
+.dashBoardAddButton{
+    margin-left: 630px;
+
+}
+
+.line{
+    background-color: black;
+    height: 2px;
+    width: 1010px;
+    margin: 20px;
+ }
+
+.tasks{
+    background-color: lightcyan;
+    height: 200px;
+    margin: 5px;
+    padding: 17px;
+    width: 345px;
+}
+
+.titleLine{
+    background-color: black;
+    height: 2px;
+    margin-bottom: 10px;
+    margin-left: -16px;
+    width: 205px;
+
+}
+.titleTrash{
+    margin-left: 207px;
+    margin-top: 10px;
+    padding: 2px 15px 2px 2px;
+}

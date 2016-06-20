@@ -1,55 +1,187 @@
-<div class="text-center">
-
+<div class="text-center" ng-controller="dashboardController">
     <div class="row content">
-    <div class="col-sm-2 sidenav"></div>
+  <div class="col-sm-1 sidenav" style="height:550px"></div>
 
-    <div class="col-sm-8 sidenav">
+    <div class="col-sm-10 sidenav" style="height:550px">
+
     <div class="container-fluid bg-3 text-center">
-        <h3>Dash Board</h3><br>
 
+        <select class="todoSelect">
+            <option>---select---</option>
+            <option>statuses</option>
+        </select>
+
+        <button class="dashBoardAddButton btn btn-primary" data-toggle="modal" data-target="#addNewRecored"><i class="fa fa-plus" aria-hidden="true"></i>
+            Add New Task</button>
+
+        <div class="line"> </div>
         <div class="row">
-            <div class="col-sm-3">
-                <p>task todo first</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="tasks col-sm-4">
+               <div>
+                             <h4 class="text-left col-md-1">Title</h4>
+
+                   <a href="#" data-toggle="tooltip" title="Delete Task..!"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+
+                   <a href="#" data-toggle="tooltip" title="Mark as a Complete!">
+                             <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="titleLine"></div>
+                <div class="text-left" style="line-height: 30px">
+                        <b>Description:</b><label>This is ToDo Application</label></br>
+                        <b>Status:</b><label>Completed</label></br>
+                        <b>Start Date:</b><label>12/12/2015</label>
+                        <b>End Date:</b><label>12/12/2016</label>
+                </div>
+
             </div>
-            <div class="col-sm-3">
-                <p>task todo second</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="tasks col-sm-4">
+                <div>
+                    <h4 class="text-left col-md-1">Title</h4>
+
+                    <a href="#" data-toggle="tooltip" title="Delete Task..!"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+
+                    <a href="#" data-toggle="tooltip" title="Mark as a Complete!">
+                        <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="titleLine"></div>
+                <div class="text-left" style="line-height: 30px">
+                    <b>Description:</b><label>This is ToDo Application</label></br>
+                    <b>Status:</b><label>Completed</label></br>
+                    <b>Start Date:</b><label>12/12/2015</label>
+                    <b>End Date:</b><label>12/12/2016</label>
+                </div>
+
             </div>
-            <div class="col-sm-3">
-                <p>task todo third</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="tasks col-sm-4">
+                <div>
+                    <h4 class="text-left col-md-1">Title</h4>
+
+                    <a href="#" data-toggle="tooltip" title="Delete Task..!"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+
+                    <a href="#" data-toggle="tooltip" title="Mark as a Complete!">
+                        <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <div class="titleLine"></div>
+                <div class="text-left" style="line-height: 30px">
+                    <b>Description:</b><label>This is ToDo Application</label></br>
+                    <b>Status:</b><label>Completed</label></br>
+                    <b>Start Date:</b><label>12/12/2015</label>
+                    <b>End Date:</b><label>12/12/2016</label>
+                </div>
+
             </div>
-            <div class="col-sm-3">
-                <p>task todo fourth</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-            </div>
+
         </div>
     </div><br>
 
     <div class="container-fluid bg-3 text-center">
         <div class="row">
-            <div class="col-sm-3">
-                <p>task todo fifth</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+            <div class="tasks col-sm-4">
+                <div>
+                    <h4 class="text-left col-md-1">Title</h4>
+
+                    <a href="#" data-toggle="tooltip" title="Delete Task..!"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+
+                    <a href="#" data-toggle="tooltip" title="Mark as a Complete!">
+                        <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <div class="titleLine"></div>
+                <div class="text-left" style="line-height: 30px">
+                    <b>Description:</b><label>This is ToDo Application</label></br>
+                    <b>Status:</b><label>Completed</label></br>
+                    <b>Start Date:</b><label>12/12/2015</label>
+                    <b>End Date:</b><label>12/12/2016</label>
+                </div>
+
             </div>
-            <div class="col-sm-3">
-                <p>task todo sixth</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="tasks col-sm-4">
+                <div>
+                    <h4 class="text-left col-md-1">Title</h4>
+
+                    <a href="#" data-toggle="tooltip" title="Delete Task..!"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+
+                    <a href="#" data-toggle="tooltip" title="Mark as a Complete!">
+                        <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <div class="titleLine"></div>
+                <div class="text-left" style="line-height: 30px">
+                    <b>Description:</b><label>This is ToDo Application</label></br>
+                    <b>Status:</b><label>Completed</label></br>
+                    <b>Start Date:</b><label>12/12/2015</label>
+                    <b>End Date:</b><label>12/12/2016</label>
+                </div>
+
             </div>
-            <div class="col-sm-3">
-                <p>task todo seventh</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="tasks col-sm-4">
+                <div>
+                    <h4 class="text-left col-md-1">Title</h4>
+
+                    <a href="#" data-toggle="tooltip" title="Delete Task..!"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+
+                    <a href="#" data-toggle="tooltip" title="Mark as a Complete!">
+                        <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <div class="titleLine"></div>
+                <div class="text-left" style="line-height: 30px">
+                    <b>Description:</b><label>This is ToDo Application</label></br>
+                    <b>Status:</b><label>Completed</label></br>
+                    <b>Start Date:</b><label>12/12/2015</label>
+                    <b>End Date:</b><label>12/12/2016</label>
+                </div>
+
             </div>
-            <div class="col-sm-3">
-                <p>task todo eighth</p>
-                <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-            </div>
+
         </div>
     </div>
+
+    </div>
+
+    <div class="col-sm-1 sidenav" style="height:550px"></div>
+</div>
+</div>
+
+<!--Model Code-->
+<div class="modal fade" id="addNewRecored" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Recored</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td><b>Description:</b></td>
+                        <td><input type="text" placeholder="Description"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Status:</b></td>
+                        <td><input type="text" placeholder="Status"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Start Date:</b></td>
+                        <td><input type="text" placeholder="Start Date"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>End Date:</b></td>
+                        <td><input type="text" placeholder="End Date"/></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
-
-
-    <div class="col-sm-2 sidenav"></div>
-</div>
-</div>

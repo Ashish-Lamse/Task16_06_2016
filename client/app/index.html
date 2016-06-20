@@ -13,6 +13,7 @@
     <!--bootstrap links-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/toDo.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -21,42 +22,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body style="height: 550px">
 
 <nav class="footNav navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Logo</a>
+                <h1 class="heading">TODOApp</h1>
+                 <h3 class="subHeading">Manage Your Tasks</h3>
         </div>
 
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="home">Home</a></li>
-
-                <li><a href="dashboard">Dashboard</a></li>
-            </ul>
-
+            <h5 class="language"><span><a>English</a><span style="color: ghostwhite">|</span><a>Spanish</a></span></h5>
         </div>
     </div>
 </nav>
 
-something
-<div ng-view></div>
-
-
-
+<div class="contDiv" ng-view></div>
 
 
 
 <footer class="container-fluid text-center">
-    <p>ashish.lamse@gmail.com</p></br>
-    <p>ashish.lamse@india.semanticbits.com</p>
+      <h3 class="toDoFooter">Powered By Semantic Bits</h3>
 </footer>
+
 
 <script src="module/todo/app.module.js"></script>
 <script src="module/todo/app.config.js"></script>

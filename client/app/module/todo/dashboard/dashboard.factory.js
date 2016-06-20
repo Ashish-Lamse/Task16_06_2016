@@ -3,8 +3,8 @@
  */
 (function(){
     angular.module('todoapp',[])
-        .factory('dashboardFactory',function ($resource) {
-            return $resource('http://192.168.2.33', {});
+        .factory('dashboardFactory',function () {
+
         })
 }())
 

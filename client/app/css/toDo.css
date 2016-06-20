@@ -30,3 +30,36 @@ footer {
     }
     .row.content {height:auto;}
 }
+    .heading{
+        color: ghostwhite;
+        margin-left: 40px;
+    }
+    .subHeading{
+        color: ghostwhite;
+        margin-left: 80px;
+    }
+    .language{
+        margin-left: 1110px;
+    }
+    .contDiv{
+        height: 100%;
+    }
+    .toDoFooter{
+        margin-right: -900px;
+    }
+
+    /*footer*/
+    #footer {
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:30px;
+        width:100%;
+        background:#999;
+    }
+
+    /* IE 6 */
+    * html #footer {
+        position:absolute;
+        /*top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');*/
+    }

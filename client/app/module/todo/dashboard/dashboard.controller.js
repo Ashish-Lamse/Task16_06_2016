@@ -5,8 +5,8 @@
 (function(){
     angular
         .module('todoApp')
-        .controller('dashboardController',function ($resource) {
-            return $resource('http://192.168.2.33', {});
+        .controller('dashboardController',function () {
+
         })
 
 }());
