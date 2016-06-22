@@ -5,8 +5,9 @@
     border-radius: 0;
 }
 
-    .todaHeader{
-       background-color: lightcyan;
+    .todoHeader{
+        background-color: lightblue;
+        border-bottom: 1px solid;
     }
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {height: 450px}
@@ -34,12 +35,10 @@ footer {
     .row.content {height:auto;}
 }
     .heading{
-        color: ghostwhite;
-        margin-left: 40px;
+             margin-left: 40px;
     }
     .subHeading{
-        color: ghostwhite;
-        margin-left: 80px;
+                margin-left: 80px;
     }
     .language{
         margin-left: 1110px;
@@ -59,6 +58,8 @@ footer {
         height:30px;
         width:100%;
         background:#999;
+        height: 67px;
+        border-top: 1px solid black;
     }
 
     /* IE 6 */

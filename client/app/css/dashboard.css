@@ -15,6 +15,7 @@
  }
 
 .tasks{
+    border: 1px solid;
     background-color: lightcyan;
     height: 225px;
     margin: 5px;

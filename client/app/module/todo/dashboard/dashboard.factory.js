@@ -5,19 +5,21 @@
 (function(){
     angular
         .module('todoApp')
-        .factory('dashboardFactory',function($http,$rootScope){
-            return{
-                readTask:function(){
-                    $rootScope.ALL_TASKS=null;
+        .factory('dashboardFactory',function($http,$rootScope, $q){
 
+            var readTask = function(){
+                console.log("in read task");
+                var deferred = $q.defer();
                     $http.get('todotasks.json').success(function (response) {
+                        deferred.resolve(response.todotasks);
+                    }, function(){
+                        deferred.reject("reject");
+                    });
+                return deferred.promise;
+            };
 
-                        $rootScope.ALL_TASKS= response.todotasks;
-
-
-                    })
-                    return $rootScope.ALL_TASKS;
-                }
+            return {
+                readTask : readTask
             }
         });
 }());
