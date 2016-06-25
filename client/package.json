@@ -17,7 +17,8 @@
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
     "protractor": "^3.2.2",
-    "shelljs": "^0.6.0"
+    "shelljs": "^0.6.0",
+    "ui-select": "^0.18.0"
   },
   "scripts": {
     "postinstall": "bower install",

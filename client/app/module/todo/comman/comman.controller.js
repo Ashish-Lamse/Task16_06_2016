@@ -5,8 +5,8 @@
         commonController.$inject = ['$scope','$translate'];
 
         function commonController($scope, $translate){
-            $scope.changeLanguage = function (key) {
 
+            $scope.changeLanguage = function (key) {
                 $translate.use(key);
             };
         }

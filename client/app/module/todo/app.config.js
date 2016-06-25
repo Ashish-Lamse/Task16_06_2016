@@ -14,7 +14,8 @@ angular
 
         .when('/dashboard',{
             templateUrl:'../../partials/dashboard.html',
-            controller:'dashboardController'
+            controller:'dashboardController',
+            controllerAs:"dc"
         })
 
         .when('/home',{
@@ -26,6 +27,7 @@ angular
         });
 
         $translateProvider.translations('en', {
+            TaskName:"Task Name",
             TITLE: 'TITLE',
             Description: 'Description',
             Status: 'Status',
@@ -40,6 +42,7 @@ angular
         });
 
         $translateProvider.translations('de', {
+            TaskName:"Task Name",
             TITLE: 'Título',
             Description: 'Descripción',
             Status: 'Estado',
