@@ -1,10 +1,9 @@
-
 .line{
     background-color: black;
     height: 2px;
     width: 1010px;
     margin: 20px;
- }
+}
 
 .HIGH{
     border: 1px solid;
@@ -46,7 +45,7 @@
     padding: 2px 15px 2px 2px;
 }
 .innerTask{
-margin: 0px;
+    margin: 0px;
 }
 
 .tasks{

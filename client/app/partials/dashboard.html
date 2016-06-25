@@ -1,91 +1,124 @@
 <div class="text-center dashboardDiv" ng-controller="dashboardController as dc">
     <div class="row content" style="margin-left: 60px">
-  <!--<div class="col-sm-1 sidenav" style="height:550px"></div>-->
+        <!--<div class="col-sm-1 sidenav" style="height:550px"></div>-->
 
-    <div class="col-sm-12" style="height:550px">
+        <div class="col-sm-12" style="height:550px">
+            <div class="row">
+                <div class="col-sm-9 text-left">
+                    <div class="row">
 
-    <div class="container-fluid bg-3 text-center">
+                        <div class="col-sm-6">
+                            <ui-select ng-model="dc.selectedStatus.value" ng-change="dc.filterTasks()">
 
-        <select class="todoSelect">
-            <option>---select---</option>
-            <option>statuses</option>
-        </select>
-
-        <button class="dashBoardAddButton btn btn-primary" data-toggle="modal" data-target="#addNewRecored"><i class="fa fa-plus" aria-hidden="true"></i>
-            {{'Add_New_task'|translate}}</button>
-
-        <hr>
-        <!--complete code here upper side-->
+                                <ui-select-match placeholder="Select status here" allow-clear="true">
+                                    <span ng-bind="dc.selectedStatus.value.name"></span>
+                                </ui-select-match>
+                                <ui-select-choices repeat="item in dc.statuses track by item.name">
+                                    <span ng-bind="item.name"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
 
 
-        <div class="row">
+                        <div class="col-sm-6">
 
-            <div class="tasks col-sm-4 text-left"  ng-repeat="task in TASKS">
-               <div>
-                             <h4 class="text-left col-md-1">{{ 'TITLE' | translate }}</h4>
+                            <ui-select multiple ng-model="dc.selectedPriority" ng-change="dc.filterTasks()">
+                                <ui-select-match placeholder="Select Priorities here" allow-clear="true">
+                                    <span></span>
+                                </ui-select-match>
 
-                   <a href="#" data-toggle="tooltip" title="Delete Task..!"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+                                <ui-select-choices repeat="item in dc.priorityArray track by item.name">
+                                    <span ng-bind="item.name"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
 
-                   <a href="#" data-toggle="tooltip" title="Mark as a Complete!">
-                             <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
                 </div>
 
-                <div class="titleLine"></div>
-                <br class="text-left innerTask" style="line-height: 30px">
-                        <b>{{ 'Description' | translate }}:</b><label>{{task.name}}</label></br>
-                        <b>{{ 'Status' | translate }}:</b><label>{{task.description}}</label></br>
-                        <b>{{ 'Start_Date' | translate }}:</b><label>{{task.start-date}}</label>
-                        <b>{{ 'End_Date' | translate }}:</b><label>{{task.end-date}}</label></br>
-                        <b>{{ 'Priority' | translate }}:</b><label>{{task.priority}}</label>
+                <div class="col-sm-3">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#addNewRecored"><i class="fa fa-plus" aria-hidden="true"></i>
+                        {{'Add_New_task'|translate}}</button>
                 </div>
-
             </div>
+
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-4 text-left tasks" ng-repeat="task in dc.tasks track by $index">
+                    <div class="{{task.priority }}">
+                        <div>
+                            <div class="row">
+                                <div class="col-sm-8" style="border-bottom: 1px solid #ccc"><h4 class="text-left col-md-1">{{ 'TITLE' | translate }}</h4></div>
+                                <div class="col-sm-4">
+                                    <a href="#" data-toggle="tooltip" title="Delete Task..!" ng-click="dc.deleteTask(task.name)" class="{{task.status}}=='COMPLETED'?'ng-hide':'a'">
+                                        <i class="fa fa-trash fa-2x"></i>
+                                    </a>
+
+                                    <label><input ng-model="check" type="checkbox" data-toggle="tooltip" ng-change="dc.checkSelect(check,task.name)"></label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <br class="text-left innerTask" style="line-height: 30px">
+
+                            <b>{{ 'TaskName' | translate }}:</b><label>{{task.name}}</label></br>
+                            <b>{{ 'Description' | translate }}:</b><label>{{task.description}}</label></br>
+                            <b>{{ 'Status' | translate }}:</b><label>{{task.status}}</label></br>
+                            <b>{{ 'Start_Date' | translate }}:</b><label>{{task.start-date}}</label>
+                            <b>{{ 'End_Date' | translate }}:</b><label>{{task.end-date}}</label></br>
+                            <b>{{ 'Priority' | translate }}:</b><label>{{task.priority}}</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
- </div>
-    </div>
 
 
+    <!--Model Code-->
+    <div class="modal fade" id="addNewRecored" role="dialog">
+        <div class="modal-dialog">
 
-<!--Model Code-->
-<div class="modal fade" id="addNewRecored" role="dialog">
-    <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Recored</h4>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <td><b>Description:</b></td>
+                            <td><input type="text" placeholder="Description"/></td>
+                        </tr>
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">New Recored</h4>
-            </div>
-            <div class="modal-body">
-                <table>
-                    <tr>
-                        <td><b>Description:</b></td>
-                        <td><input type="text" placeholder="Description"/></td>
-                    </tr>
+                        <tr>
+                            <td><b>Status:</b></td>
+                            <td><input type="text" placeholder="Status"/></td>
+                        </tr>
 
-                    <tr>
-                        <td><b>Status:</b></td>
-                        <td><input type="text" placeholder="Status"/></td>
-                    </tr>
+                        <tr>
+                            <td><b>Start Date:</b></td>
+                            <td><input type="text" placeholder="Start Date"/></td>
+                        </tr>
 
-                    <tr>
-                        <td><b>Start Date:</b></td>
-                        <td><input type="text" placeholder="Start Date"/></td>
-                    </tr>
+                        <tr>
+                            <td><b>End Date:</b></td>
+                            <td><input type="text" placeholder="End Date"/></td>
+                        </tr>
+                    </table>
 
-                    <tr>
-                        <td><b>End Date:</b></td>
-                        <td><input type="text" placeholder="End Date"/></td>
-                    </tr>
-                </table>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-    </div>

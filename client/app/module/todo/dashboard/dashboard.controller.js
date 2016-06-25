@@ -37,13 +37,13 @@
 
         function checkSelect(check,name){
             var checkTask=dc.tasks;
-               if(check){
+            if(check){
                 var con=confirm("Do you want to make it as complete..?");
                 if(con==true)
                 {
                     for (var i = 0; i < checkTask.length; i++) {
                         if (checkTask[i].name == name || checkTask[i].status=="COMPLETED") {
-                           checkTask[i].status="COMPLETED";
+                            checkTask[i].status="COMPLETED";
                         }
                     }
                     dc.tasks = checkTask;
@@ -67,8 +67,8 @@
             }
 
             else {
-                    console.log("You pressed cancle");
-                }
+                console.log("You pressed cancle");
+            }
 
         }
 
@@ -115,5 +115,3 @@
     }
 
 }());
-
-

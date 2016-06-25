@@ -5,26 +5,26 @@ angular
     .module('todoApp')
 
     .config(['$routeProvider', '$locationProvider','$translateProvider', function($routeProvider,$locationProvider,$translateProvider){
-    $routeProvider
+        $routeProvider
 
-        .when('/',{
-            templateUrl:'../../partials/dashboard.html',
-            controller:'dashboardController'
-        })
+            .when('/',{
+                templateUrl:'../../partials/dashboard.html',
+                controller:'dashboardController'
+            })
 
-        .when('/dashboard',{
-            templateUrl:'../../partials/dashboard.html',
-            controller:'dashboardController',
-            controllerAs:"dc"
-        })
+            .when('/dashboard',{
+                templateUrl:'../../partials/dashboard.html',
+                controller:'dashboardController',
+                controllerAs:"dc"
+            })
 
-        .when('/home',{
-            templateUrl:'../../partials/home.html'
-        })
+            .when('/home',{
+                templateUrl:'../../partials/home.html'
+            })
 
-        .otherwise({
-            redirectTo:'/dashboard'
-        });
+            .otherwise({
+                redirectTo:'/dashboard'
+            });
 
         $translateProvider.translations('en', {
             TaskName:"Task Name",
@@ -57,5 +57,5 @@ angular
 
         $translateProvider.preferredLanguage('en');
 
-     $locationProvider.html5Mode(true);
-}]);
+        $locationProvider.html5Mode(true);
+    }]);

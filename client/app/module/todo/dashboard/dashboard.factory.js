@@ -15,47 +15,39 @@
         var Tasks;
         return {
             readTask : readTask,
-           /* filterTask: filterTask,*/
+            /* filterTask: filterTask,*/
             /*filterPriorities:filterPriorities*/
 
         };
 
         /*function filterTask(status){
-            var filteredTasks=[];
+         var filteredTasks=[];
+         for(var i=0;i<Tasks.length;i++){
+         if(Tasks[i].status==status){
+         filteredTasks.push(Tasks[i]);
+         }
+         }
+         return filteredTasks;
+         }*/
 
-            for(var i=0;i<Tasks.length;i++){
-
-                if(Tasks[i].status==status){
-                    filteredTasks.push(Tasks[i]);
-                }
-            }
-
-            return filteredTasks;
-        }*/
-
-       /* function filterPriorities(tasks,priorities,status)
-        {
-
-            var sortPriorities=[];
-
-            if(priorities){
-                    for(var i=0;i<tasks.lenght;i++){
-                        for(var j=0;j<priorities.length;j++)
-                        {
-                            if(tasks[i].status==status && tasks[i]==priorities[j].value){
-                                sortPriorities.push(tasks[i]);
-                            }
-                        }
-                    }
-                return sortPriorities;
-            }
-
-            else{
-                return tasks;
-            }
-
-
-        }*/
+        /* function filterPriorities(tasks,priorities,status)
+         {
+         var sortPriorities=[];
+         if(priorities){
+         for(var i=0;i<tasks.lenght;i++){
+         for(var j=0;j<priorities.length;j++)
+         {
+         if(tasks[i].status==status && tasks[i]==priorities[j].value){
+         sortPriorities.push(tasks[i]);
+         }
+         }
+         }
+         return sortPriorities;
+         }
+         else{
+         return tasks;
+         }
+         }*/
 
         function readTask(){
 
@@ -65,13 +57,13 @@
                 function (response) {
                     Tasks=response.todotasks;
 
-                deferred.resolve(response.todotasks);
-            },
+                    deferred.resolve(response.todotasks);
+                },
 
                 function(resion){
-                deferred.reject("reject");
-                console.log(resion);
-            });
+                    deferred.reject("reject");
+                    console.log(resion);
+                });
             return deferred.promise;
         };
     }
