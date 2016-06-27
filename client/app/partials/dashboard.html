@@ -8,11 +8,12 @@
                     <div class="row">
 
                         <div class="col-sm-6">
-                            <ui-select ng-model="dc.selectedStatus.value" ng-change="dc.filterTasks()">
 
+                            <ui-select ng-model="dc.selectedStatus" ng-change="dc.filterTasks()">
                                 <ui-select-match placeholder="Select status here" allow-clear="true">
-                                    <span ng-bind="dc.selectedStatus.value.name"></span>
+                                    <span ng-bind="dc.selectedStatus.name"></span>
                                 </ui-select-match>
+
                                 <ui-select-choices repeat="item in dc.statuses track by item.name">
                                     <span ng-bind="item.name"></span>
                                 </ui-select-choices>
@@ -23,14 +24,15 @@
                         <div class="col-sm-6">
 
                             <ui-select multiple ng-model="dc.selectedPriority" ng-change="dc.filterTasks()">
-                                <ui-select-match placeholder="Select Priorities here" allow-clear="true">
-                                    <span></span>
+                                <ui-select-match placeholder="Select Priorities here" allow-clear="true" >
+                                   <span> {{$item.name}}</span>
                                 </ui-select-match>
 
                                 <ui-select-choices repeat="item in dc.priorityArray track by item.name">
                                     <span ng-bind="item.name"></span>
                                 </ui-select-choices>
                             </ui-select>
+
                         </div>
                     </div>
 
@@ -47,20 +49,27 @@
 
             <div class="row">
                 <div class="col-sm-4 text-left tasks" ng-repeat="task in dc.tasks track by $index">
-                    <div class="{{task.priority }}">
-                        <div>
+                    <div class="{{task.priority}}">
                             <div class="row">
-                                <div class="col-sm-8" style="border-bottom: 1px solid #ccc"><h4 class="text-left col-md-1">{{ 'TITLE' | translate }}</h4></div>
-                                <div class="col-sm-4">
-                                    <a href="#" data-toggle="tooltip" title="Delete Task..!" ng-click="dc.deleteTask(task.name)" class="{{task.status}}=='COMPLETED'?'ng-hide':'a'">
-                                        <i class="fa fa-trash fa-2x"></i>
-                                    </a>
+                                <div class="col-sm-8" style="border-bottom: 1px solid #ccc;margin-left:10px"><h4 class="text-left col-md-1">{{ 'TITLE' | translate }}</h4></div>
 
-                                    <label><input ng-model="check" type="checkbox" data-toggle="tooltip" ng-change="dc.checkSelect(check,task.name)"></label>
-
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <a href="#" data-toggle="tooltip" title="Delete Task..!" ng-click="dc.deleteTask(task.name)" class="{{task.status=='COMPLETED'?'ng-hide':'a'}}">
+                                                <i class="fa fa-trash fa-2x"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <a href="#" data-toggle="tooltip" title="Select Task..!"  ng-click="dc.checkSelect(task.name)">
+                                                <i class="fa fa-square-o fa-2x {{task.status=='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
+                                                <i class="fa fa-check-square-o fa-2x {{task.status!='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
                         <div>
                             <br class="text-left innerTask" style="line-height: 30px">
 

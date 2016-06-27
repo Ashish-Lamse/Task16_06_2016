@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html ng-app="todoApp">
 <head>
-
     <base href="/"/>
-
 
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <!--bootstrap links-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/toDo.css">
     <link rel="stylesheet" href="css/dashboard.css">
 
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-
-
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -35,20 +30,19 @@
 
     </div>
     <div><h3 class="subHeading">{{'Manage_Your_Tasks'|translate}}</h3></div>
-
-
-
 </nav>
 
-<div class="contDiv" ng-view></div>
+<div class="contDiv" style="clear: both;" ng-view>
 
-<footer class="container-fluid text-center" id="footer">
+</div>
+
+<div class="text-center" id="footer" style="clear: both;">
     <div class="row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3"><h3 class="toDoFooter">Powered By SemanticBits</h3></div>
     </div>
 
-</footer>
+</div>
 
 
 

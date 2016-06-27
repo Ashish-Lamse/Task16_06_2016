@@ -1,29 +1,21 @@
-.line{
-    background-color: black;
-    height: 2px;
-    width: 1010px;
-    margin: 20px;
-}
+
 
 .HIGH{
     border: 1px solid;
     background-color: #ff6666;
-    margin: 5px;
-    padding: 17px;
+    padding: 5px;
 }
 
 .MEDIUM{
     border: 1px solid;
     background-color: #80d4ff;
-    margin: 10px;
-    padding: 17px;
+    padding: 5px;
 }
 
 .LOW{
     border: 1px solid;
     background-color: #9fdfbf;
-    margin: 10px;
-    padding: 17px;
+    padding: 5px;
 }
 
 
@@ -49,5 +41,6 @@
 }
 
 .tasks{
-    height: 244px;
+    /*height: 244px;*/
+    margin-bottom: 10px;
 }

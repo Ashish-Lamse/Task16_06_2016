@@ -10,11 +10,9 @@
 
     dashboardController.$inject=['$rootScope','dashboardFactory','$scope'];
 
-    function dashboardController($rootScope,dashboardFactory,$scope){
+    function dashboardController($rootScope,dashboardFactory){
         var dc = this;
         dc.tasks=[];
-        dc.selectedStatus;
-        dc.selectedPriority;
         dc.loadTasks = loadTasks;
         dc.filterTasks = filterTasks;
         dc.deleteTask=deleteTask;
@@ -35,9 +33,10 @@
             {name:'Medium',value: 'MEDIUM'}
         ];
 
-        function checkSelect(check,name){
+        function checkSelect(name){
+            console.log(name);
             var checkTask=dc.tasks;
-            if(check){
+
                 var con=confirm("Do you want to make it as complete..?");
                 if(con==true)
                 {
@@ -48,7 +47,6 @@
                     }
                     dc.tasks = checkTask;
                 }
-            }
 
         }
 
@@ -82,36 +80,79 @@
 
         function filterTasks(){
             var TASKS=$rootScope.TASKS;
-            var status=dc.selectedStatus.value.value;
+            var status=dc.selectedStatus;
             var priorities=dc.selectedPriority;
-
             var filteredTasks=[];
 
+            console.log(status+"===this is status"+priorities+"this is priority");
 
+            angular.forEach(TASKS,function(task){
+                if (status && priorities && task.status === status.value)/* && 'MEDIUM'.indexOf(task.priority) !== -1) */{
+                   angular.forEach(priorities,function(priority){
+
+                        if(priority.value.indexOf(task.priority)!== -1){
+                            filteredTasks.push(task);
+                        }
+                    })
+                }
+                else if (!priorities && status && task.status === status.value ) {
+                    filteredTasks.push(task);
+                }
+
+                else if ( !status && priorities){
+                    angular.forEach(priorities,function(priority){
+                        if(priority.value.indexOf(task.priority)!== -1){
+                            filteredTasks.push(task);
+                        }
+                    })
+                }
+            });
+
+            if  (status || priorities.length!==0) {
+                dc.tasks=filteredTasks;
+            }
+            else {
+                dc.tasks=$rootScope.TASKS;
+            }
+        }
+        /*function filterTasks(){
+            var TASKS=$rootScope.TASKS;
+            var status=dc.selectedStatus.value.value;
+            var priorities=dc.selectedPriority;
+            var filteredTasks=[];
 
             if(priorities){
-                for(var k=0;k<TASKS.length;k++){
-                    for(var l=0;l<priorities.length;l++){
-
-                        if(TASKS[k].status==status && priorities[l].value==TASKS[k].priority)
-                        {
-                            filteredTasks.push(TASKS[k]);
+                if(priorities.length==0){
+                    for(var p=0;p<TASKS.length;p++){
+                        if(TASKS[p].status==status){
+                            filteredTasks.push(TASKS[p]);
                         }
                     }
                 }
+                else{
+                    for(var k=0;k<TASKS.length;k++){
+                        for(var l=0;l<priorities.length;l++){
+                            if(TASKS[k].status==status && priorities[l].value==TASKS[k].priority)
+                            {
+                                filteredTasks.push(TASKS[k]);
+                            }
+                        }
+                    }
+                }
+
             }
+
 
             else{
                 for(var i=0;i<TASKS.length;i++){
                     if(TASKS[i].status==status){
-                        filteredTasks.push(TASKS[i]);                    }
+                        filteredTasks.push(TASKS[i]);
+                    }
                 }
             }
 
             dc.tasks=filteredTasks;
-        }
-
-
+        }*/
     }
 
 }());
