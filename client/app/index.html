@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app="todoApp">
-<head>
     <base href="/"/>
 
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
@@ -11,12 +10,14 @@
     <link rel="stylesheet" href="css/dashboard.css">
 
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.min.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
 
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body style="height: 550px">
+<body>
 
 <nav class="navbar todoHeader" ng-controller="commonController">
     <div class="row">
@@ -53,12 +54,14 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
 
 <script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
-<!---->
-
-
+<script src="bower_components/Chart.js/Chart.js"></script>
+<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 
 <script src="module/todo/app.module.js"></script>
 <script src="module/todo/app.config.js"></script>
@@ -68,8 +71,12 @@
 <script src="module/todo/dashboard/dashboard.controller.js"></script>
 <script src="module/todo/comman/comman.controller.js"></script>
 <script src="module/todo/comman/comman.factory.js"></script>
+<script src="module/todo/chart/chart.controller.js"></script>
+
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.js"></script>
+
+
 
 
 

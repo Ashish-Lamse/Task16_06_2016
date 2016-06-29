@@ -2,7 +2,7 @@
  * Created by Ashish Lamse on 16/6/16.
  */
 (function(){
-    angular.module('todoApp',['ngRoute','pascalprecht.translate','ui.select','ngSanitize']);
+    angular.module('todoApp',['ngRoute','pascalprecht.translate','ui.select','ngSanitize','ui.bootstrap','chart.js','ui.router']);
 }());
 
 

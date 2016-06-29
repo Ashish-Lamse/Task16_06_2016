@@ -1,13 +1,10 @@
 <div class="text-center dashboardDiv" ng-controller="dashboardController as dc">
-    <div class="row content" style="margin-left: 60px">
-        <!--<div class="col-sm-1 sidenav" style="height:550px"></div>-->
+    <div class="row content" style="margin: 12px">
 
-        <div class="col-sm-12" style="height:550px">
+        <div class="col-sm-12">
             <div class="row">
-                <div class="col-sm-9 text-left">
-                    <div class="row">
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
 
                             <ui-select ng-model="dc.selectedStatus" ng-change="dc.filterTasks()">
                                 <ui-select-match placeholder="Select status here" allow-clear="true">
@@ -21,7 +18,7 @@
                         </div>
 
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
 
                             <ui-select multiple ng-model="dc.selectedPriority" ng-change="dc.filterTasks()">
                                 <ui-select-match placeholder="Select Priorities here" allow-clear="true" >
@@ -34,16 +31,17 @@
                             </ui-select>
 
                         </div>
-                    </div>
 
-                </div>
+                        <div class="col-sm-2">
+                           <a href="chart">Show Tasks on chart</a>
+                        </div>
 
-                <div class="col-sm-3">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#addNewRecored"><i class="fa fa-plus" aria-hidden="true"></i>
-                        {{'Add_New_task'|translate}}</button>
-                </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary" ng-click="dc.openModel()"><i class="fa fa-plus" aria-hidden="true"></i>
+                                {{'Add_New_task'|translate}}</button>
+                        </div>
+
             </div>
-
 
             <hr>
 
@@ -56,12 +54,12 @@
                                 <div class="col-sm-3">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <a href="#" data-toggle="tooltip" title="Delete Task..!" ng-click="dc.deleteTask(task.name)" class="{{task.status=='COMPLETED'?'ng-hide':'a'}}">
+                                            <a href="#" tooltip-placement='top' uib-tooltip="{{dc.deleteTooltip}}"  ng-click="dc.deleteTask(task.name)" class="{{task.status=='COMPLETED'?'ng-hide':'a'}}">
                                                 <i class="fa fa-trash fa-2x"></i>
                                             </a>
                                         </div>
                                         <div class="col-sm-6">
-                                            <a href="#" data-toggle="tooltip" title="Select Task..!"  ng-click="dc.checkSelect(task.name)">
+                                            <a href="#" tooltip-placement='top' uib-tooltip="{{dc.selectedTooltip}}" ng-click="dc.checkSelect(task.name)">
                                                 <i class="fa fa-square-o fa-2x {{task.status=='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
                                                 <i class="fa fa-check-square-o fa-2x {{task.status!='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
                                             </a>
@@ -76,8 +74,8 @@
                             <b>{{ 'TaskName' | translate }}:</b><label>{{task.name}}</label></br>
                             <b>{{ 'Description' | translate }}:</b><label>{{task.description}}</label></br>
                             <b>{{ 'Status' | translate }}:</b><label>{{task.status}}</label></br>
-                            <b>{{ 'Start_Date' | translate }}:</b><label>{{task.start-date}}</label>
-                            <b>{{ 'End_Date' | translate }}:</b><label>{{task.end-date}}</label></br>
+                            <b>{{ 'Start_Date' | translate }}:</b><label>{{task.startdate}}</label>
+                            <b>{{ 'End_Date' | translate }}:</b><label>{{task.enddate}}</label></br>
                             <b>{{ 'Priority' | translate }}:</b><label>{{task.priority}}</label>
                         </div>
 
@@ -88,46 +86,9 @@
         </div>
     </div>
 
-
+</div>
 
     <!--Model Code-->
-    <div class="modal fade" id="addNewRecored" role="dialog">
-        <div class="modal-dialog">
+    <div ng-controller="dashboardController">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New Recored</h4>
-                </div>
-                <div class="modal-body">
-                    <table>
-                        <tr>
-                            <td><b>Description:</b></td>
-                            <td><input type="text" placeholder="Description"/></td>
-                        </tr>
-
-                        <tr>
-                            <td><b>Status:</b></td>
-                            <td><input type="text" placeholder="Status"/></td>
-                        </tr>
-
-                        <tr>
-                            <td><b>Start Date:</b></td>
-                            <td><input type="text" placeholder="Start Date"/></td>
-                        </tr>
-
-                        <tr>
-                            <td><b>End Date:</b></td>
-                            <td><input type="text" placeholder="End Date"/></td>
-                        </tr>
-                    </table>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
