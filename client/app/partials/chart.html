@@ -1,15 +1,21 @@
 
-<div class="row">
-    <div class="col-sm-6">
-        <canvas id="bar" class="chart chart-bar" chart-data="data"
-                chart-series="series" backgroundColor='' fill="true"  chart-labels="labels"  height="500px" width="500px">
+<div class="row" style="margin: 20px">
+
+    <div class="col-sm-4">
+        <canvas id="bar" class="chart chart-bar" chart-data="ch.data"
+                chart-colors="ch.colors"  chart-series="ch.series"  chart-labels="ch.labels"  height="400px" width="400px">
         </canvas>
     </div>
 
-    <div class="col-sm-6">
-        <canvas id="pie" class="chart chart-pie" height="500px" width="500px"
-                 chart-legend="true" chart-data="pdata" chart-labels="plabels">
+    <div class="col-sm-4">
+        <canvas id="pie" class="chart chart-pie" height="400px" width="400px"
+                 chart-legend="true" chart-data="ch.pdata" chart-labels="ch.plabels">
         </canvas>
+    </div>
+
+    <div class="col-sm-2">
+        <a href="/"><i class="fa fa-backward" aria-hidden="true"></i>
+            back to dashboard</a>
     </div>
 </div>
 

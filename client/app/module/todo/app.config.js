@@ -7,7 +7,7 @@ angular
     .config(['$routeProvider', '$locationProvider','$translateProvider','ChartJsProvider', function($routeProvider,$locationProvider,$translateProvider,ChartJsProvider){
 
         ChartJsProvider.setOptions({
-            colours: ['#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
+            colours: ['#ff6666', '#80d4ff', '#9fdfbf'],
             responsive: false
         });
         // Configure all line charts
@@ -34,7 +34,8 @@ angular
 
             .when('/chart',{
                 templateUrl:'../../partials/chart.html',
-                controller:'chartController'
+                controller:'chartController',
+                controllerAs:"ch"
             })
 
             .otherwise({

@@ -11,6 +11,7 @@
 
     function dashboardController($rootScope,dashboardFactory,$scope,$uibModal){
         var dc = this;
+
         dc.tasks=[];
         dc.loadTasks = loadTasks;
         dc.filterTasks = filterTasks;
@@ -19,8 +20,9 @@
 
         loadTasks();
 
-        dc.deleteTooltip='Delete Task....';
-        dc.selectedTooltip='Select the task...';
+        dc.deleteTooltip='Delete Task';
+        dc.selectedTooltip='Mark as Complete';
+        dc.selectedPriority=[];
 
         dc.statuses = [
             {value: 'OPENED', name: 'Opened'},
@@ -55,6 +57,7 @@
                            for (var i = 0; i < deleteTask.length; i++) {
                                if (deleteTask[i].name == name) {
                                    deleteTask.splice(i, 1);
+                                   break;
                                }
                            }
                            dc.tasks = deleteTask;
@@ -73,8 +76,10 @@
         function checkSelect(name){
 
             var modalInstanceCheck = $uibModal.open({
+
                 animation: $scope.animationsEnabled,
                 templateUrl: '../../../partials/completeTask.html',
+
                 controller: function($scope,$uibModalInstance){
                     var checkTask=dc.tasks;
                     $scope.ok=ok;
@@ -82,8 +87,9 @@
 
                     function ok(){
                         for (var i = 0; i < checkTask.length; i++) {
-                            if (checkTask[i].name == name || checkTask[i].status=="COMPLETED") {
+                            if (checkTask[i].name == name) {
                                 checkTask[i].status="COMPLETED";
+                                break;
                             }
                         }
                         dc.tasks = checkTask;
@@ -115,7 +121,7 @@
             var filteredTasks=[];
 
             angular.forEach(TASKS,function(task){
-                if (status && priorities && task.status === status.value){
+                if (status && priorities.length!==0 && task.status === status.value){
                    angular.forEach(priorities,function(priority){
                         if(priority.value.indexOf(task.priority)!== -1){
                             filteredTasks.push(task);
@@ -123,7 +129,7 @@
                     })
                 }
 
-                else if (!priorities && status && task.status === status.value ) {
+                else if (priorities.length===0 && status && task.status === status.value ) {
                     filteredTasks.push(task);
                 }
                 else if ( !status && priorities){
@@ -134,7 +140,7 @@
                     })
                 }
             });
-            if  (status || priorities) {
+            if  (status || priorities.length!==0) {
                 dc.tasks=filteredTasks;
             }
             else {

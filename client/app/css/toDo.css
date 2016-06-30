@@ -39,7 +39,7 @@ footer {
     }
     .subHeading{
                 margin-left: 80px;
-                margin-top: 0px;
+                margin-top: -10px;
     }
     .language{
         margin-left: 1110px;
@@ -51,7 +51,7 @@ footer {
 
     /*footer*/
     #footer {
-        position:fixed;
+
         left:0px;
         bottom:0px;
         width:100%;

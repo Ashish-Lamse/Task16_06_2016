@@ -9,47 +9,52 @@ angular
     chartController.$inject=['$scope','$rootScope'];
 
     function chartController($scope,$rootScope){
+        var ch=this;
+
         var allTasks=$rootScope.TASKS;
-
-        var OPENED=0;
-        var INPROGRESS=0;
-        var INVALID=0;
-        var COMPLETE=0;
-
-        var HIGH=0;
-        var MEDIUM=0;
-        var LOW=0;
-
+        ch.statuses={
+         "OPENED":0,
+        "INPROGRESS":0,
+        "INVALID":0,
+        "COMPLETE":0
+        };
+        ch.priorities={
+        "HIGH":0,
+        "MEDIUM":0,
+        "LOW":0
+    }
         angular.forEach(allTasks,function(task){
             if(task.status==='COMPLETED'){
-                COMPLETE++;
+                ch.statuses.COMPLETE++;
             }
             else if(task.status==='OPENED'){
-                OPENED++;
+                ch.statuses.OPENED++;
             }
             else if(task.status==='INPROGRESS'){
-                INPROGRESS++;
+                ch.statuses.INPROGRESS++;
             }
             else{
-                INVALID++;
+                ch.statuses.INVALID++;
             }
         });
+
         angular.forEach(allTasks,function(task){
             if(task.priority==='HIGH'){
-                HIGH++;
+                ch.priorities.HIGH++;
             }
             else if(task.priority==='MEDIUM'){
-                MEDIUM++;
+                ch.priorities.MEDIUM++;
             }else{
-                LOW++;
+                ch.priorities.LOW++;
             }
         });
-        $scope.labels = ['OPENED', 'INPROGRESS', 'INVALID', 'COMPLETE'];
-        $scope.data = [
-            [OPENED,INPROGRESS,INVALID,COMPLETE]
+        ch.series = ['Series A','Series B','Series C','Series D'];
+        ch.labels = ['OPENED', 'INPROGRESS', 'INVALID', 'COMPLETE'];
+        ch.data = [
+            [ch.statuses.OPENED,ch.statuses.INPROGRESS,ch.statuses.INVALID,ch.statuses.COMPLETE]
         ];
 
-        $scope.plabels = ["HIGH", "MEDIUM", "LOW"];
-        $scope.pdata = [HIGH, MEDIUM, LOW];
+        ch.plabels = ["HIGH", "MEDIUM", "LOW"];
+        ch.pdata = [ch.priorities.HIGH, ch.priorities.MEDIUM, ch.priorities.LOW];
     }
 }());
