@@ -18,22 +18,22 @@ angular
 
         $routeProvider
             .when('/',{
-                templateUrl:'../../partials/dashboard.html',
+                templateUrl:'partials/dashboard.html',
                 controller:'dashboardController'
             })
 
             .when('/dashboard',{
-                templateUrl:'../../partials/dashboard.html',
+                templateUrl:'partials/dashboard.html',
                 controller:'dashboardController',
                 controllerAs:"dc"
             })
 
             .when('/home',{
-                templateUrl:'../../partials/home.html'
+                templateUrl:'partials/home.html'
             })
 
             .when('/chart',{
-                templateUrl:'../../partials/chart.html',
+                templateUrl:'partials/chart.html',
                 controller:'chartController',
                 controllerAs:"ch"
             })
@@ -58,7 +58,8 @@ angular
             CompleteTask:'Complete Task',
             'CompleteConfirm':'Are you sure want to mark task as completed..?',
             'DeleteTask':'Delete The Task',
-            'DeleteConfirm':'Are You sure want to delete the task..?'
+            'DeleteConfirm':'Are You sure want to delete the task..?',
+            'EditTask':"Edit Task"
 
         });
 
@@ -78,7 +79,8 @@ angular
             CompleteTask:'Tarea completa',
             'CompleteConfirm':'¿Seguro desea marcar tarea como completada .. ?',
             'DeleteTask':'Eliminar la tarea',
-            'DeleteConfirm':'¿Usted está seguro de querer eliminar la tarea .. ?'
+            'DeleteConfirm':'¿Usted está seguro de querer eliminar la tarea .. ?',
+            'EditTask':"Editar tarea"
 
         });
 

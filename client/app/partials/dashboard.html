@@ -3,33 +3,7 @@
 
         <div class="col-sm-12">
             <div class="row">
-
-                        <div class="col-sm-4">
-
-                            <ui-select ng-model="dc.selectedStatus" ng-change="dc.filterTasks()">
-                                <ui-select-match placeholder="Select status here" allow-clear="true">
-                                    <span ng-bind="dc.selectedStatus.name"></span>
-                                </ui-select-match>
-
-                                <ui-select-choices repeat="item in dc.statuses track by item.name">
-                                    <span ng-bind="item.name"></span>
-                                </ui-select-choices>
-                            </ui-select>
-                        </div>
-
-
-                        <div class="col-sm-4">
-                            <ui-select multiple ng-model="dc.selectedPriority" ng-change="dc.filterTasks()">
-                                <ui-select-match placeholder="Select Priorities here" allow-clear="true" >
-                                   <span> {{$item.name}}</span>
-                                </ui-select-match>
-
-                                <ui-select-choices repeat="item in dc.priorityArray track by item.name">
-                                    <span ng-bind="item.name"></span>
-                                </ui-select-choices>
-                            </ui-select>
-
-                        </div>
+                <filter-directive tasks="dc.tasks" filterstatus="dc.statuses" filterpriority="dc.priorityArray"></filter-directive>
 
                         <div class="col-sm-2">
                            <a href="chart">Show Tasks on chart</a>
@@ -45,41 +19,7 @@
             <hr>
 
             <div class="row">
-                <div class="col-sm-4 text-left tasks" ng-repeat="task in dc.tasks track by $index">
-                    <div class="{{task.priority}}">
-                            <div class="row">
-                                <div class="col-sm-8" style="border-bottom: 1px solid #ccc;margin-left:10px"><h4 class="text-left col-md-1">{{ 'TITLE' | translate }}</h4></div>
-
-                                <div class="col-sm-3">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <a href="#"   ng-click="dc.deleteTask(task.name)" class="{{task.status=='COMPLETED'?'ng-hide':'a'}}">
-                                                <i tooltip-placement='top' uib-tooltip="{{dc.deleteTooltip}}" class="fa fa-trash fa-2x"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <a href="#"  ng-click="dc.checkSelect(task.name)">
-                                                <i tooltip-placement='top' uib-tooltip="{{dc.selectedTooltip}}" class="fa fa-square-o fa-2x {{task.status=='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
-                                                <i class="fa fa-check-square-o fa-2x {{task.status!='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <div>
-                            <br class="text-left innerTask" style="line-height: 30px">
-
-                            <b>{{ 'TaskName' | translate }}:</b><label>{{task.name}}</label></br>
-                            <b>{{ 'Description' | translate }}:</b><label>{{task.description}}</label></br>
-                            <b>{{ 'Status' | translate }}:</b><label>{{task.status}}</label></br>
-                            <b>{{ 'Start_Date' | translate }}:</b><label>{{task.startdate}}</label>
-                            <b>{{ 'End_Date' | translate }}:</b><label>{{task.enddate}}</label></br>
-                            <b>{{ 'Priority' | translate }}:</b><label>{{task.priority}}</label>
-                        </div>
-
-                    </div>
-                </div>
+                <dashboard-directive tasks="dc.tasks"></dashboard-directive>
             </div>
 
         </div>

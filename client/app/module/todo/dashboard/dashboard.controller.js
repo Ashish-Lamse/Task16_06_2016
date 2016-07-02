@@ -14,15 +14,16 @@
 
         dc.tasks=[];
         dc.loadTasks = loadTasks;
-        dc.filterTasks = filterTasks;
-        dc.deleteTask=deleteTask;
-        dc.checkSelect=checkSelect;
+       /* dc.filterTasks = filterTasks;*/
+
+
+        dc.myName="Ashish";
 
         loadTasks();
 
         dc.deleteTooltip='Delete Task';
         dc.selectedTooltip='Mark as Complete';
-        dc.selectedPriority=[];
+        /*dc.selectedPriority=[];*/
 
         dc.statuses = [
             {value: 'OPENED', name: 'Opened'},
@@ -37,72 +38,6 @@
             {name:'Medium',value: 'MEDIUM'}
         ];
 
-       function deleteTask(name){
-           var modalInstanceDelete = $uibModal.open({
-
-               animation: $scope.animationsEnabled,
-
-               templateUrl: '../../../partials/deleteTask.html',
-
-               controller:function ($scope,$uibModalInstance){
-
-                   var decnt=this;
-                   $scope.ok=ok;
-                   $scope.cancel=cancel;
-
-                   function ok(){
-                       var deleteTask=dc.tasks;
-
-
-                           for (var i = 0; i < deleteTask.length; i++) {
-                               if (deleteTask[i].name == name) {
-                                   deleteTask.splice(i, 1);
-                                   break;
-                               }
-                           }
-                           dc.tasks = deleteTask;
-
-
-                       $uibModalInstance.dismiss('cancel');
-                   }
-
-                   function cancel(){
-                       $uibModalInstance.close();
-                   }
-               }
-           });
-        }
-
-        function checkSelect(name){
-
-            var modalInstanceCheck = $uibModal.open({
-
-                animation: $scope.animationsEnabled,
-                templateUrl: '../../../partials/completeTask.html',
-
-                controller: function($scope,$uibModalInstance){
-                    var checkTask=dc.tasks;
-                    $scope.ok=ok;
-                    $scope.cancel=cancel;
-
-                    function ok(){
-                        for (var i = 0; i < checkTask.length; i++) {
-                            if (checkTask[i].name == name) {
-                                checkTask[i].status="COMPLETED";
-                                break;
-                            }
-                        }
-                        dc.tasks = checkTask;
-                        $uibModalInstance.dismiss('cancel');
-                    }
-
-                    function cancel(){
-                        $uibModalInstance.close();
-                    }
-
-                }
-            })
-        }
 
         function loadTasks() {
             dashboardFactory.readTask().then(function(response){
@@ -113,7 +48,7 @@
             });
         }
 
-        function filterTasks(){
+        /*function filterTasks(){
             var TASKS=$rootScope.TASKS;
 
             var status=dc.selectedStatus;
@@ -146,7 +81,7 @@
             else {
                 dc.tasks=$rootScope.TASKS;
             }
-        }
+        }*/
 
     }
 
