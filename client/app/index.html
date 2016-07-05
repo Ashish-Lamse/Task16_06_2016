@@ -11,7 +11,9 @@
 
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.min.css">
+    <link rel="stylesheet" href="bower_components/angularjs-datepicker/src/css/angular-datepicker.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
 
 
     <meta charset="UTF-8">
@@ -22,12 +24,12 @@
 <nav class="navbar todoHeader" ng-controller="commonController">
     <div class="row">
         <div class="col-sm-10">
-            <h1 class="heading">TODOApp</h1>
+            <h1 class="heading"><b>TODOApp</b></h1>
             <h3 class="subHeading">{{'Manage_Your_Tasks'|translate}}</h3>
         </div>
 
         <div class="col-sm-2">
-            <span><a ng-click="changeLanguage('en')">{{'English'|translate}}</a>&nbsp;|&nbsp;<a ng-click="changeLanguage('de')">{{'Spanish'|translate}}</a></span>
+            <h4><span><a ng-click="changeLanguage('en')">{{'English'|translate}}</a>&nbsp;|&nbsp;<a ng-click="changeLanguage('de')">{{'Spanish'|translate}}</a></a></span></h4>
         </div>
 
     </div>
@@ -47,7 +49,7 @@
 
 
 
-<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -60,12 +62,15 @@
 <script src="bower_components/angular-ui-select/dist/select.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
+
+
 <script src="bower_components/Chart.js/Chart.js"></script>
 <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 
 <script src="module/todo/app.module.js"></script>
 <script src="module/todo/app.config.js"></script>
 <script src="module/todo/app.run.js"></script>
+<script src="module/todo/test/dashboard.controller.test.js"></script>
 
 <script src="module/todo/dashboard/dashboard.factory.js"></script>
 <script src="module/todo/dashboard/dashboard.controller.js"></script>
