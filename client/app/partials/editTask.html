@@ -21,14 +21,26 @@
             <div class="row">
                 <div class="col-sm-6"><label>Status:</label></div>
                 <div class="col-sm-6">
-                    <input type='text' name='status' ng-model="edittaskContant.status" required class="form-control" placeholder="Status">
+                    <!--<input type='text' name='status' ng-model="edittaskContant.status" required class="form-control" placeholder="Status">-->
+                    <ui-select ng-model="edittaskContant.status" name="status">
+                        <ui-select-match placeholder="Select status here" allow-clear="true">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+
+                        <ui-select-choices repeat="item.value as item in statuses track by item.name">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
                     <span ng-show="editForm.status.$error.required && editForm.status.$invalid" style="color:red">Please fill out this filed</span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-6"><label>Start Date:</label></div>
-                <div class="col-sm-6"><input type='text' name='startdate' ng-model="edittaskContant.startdate" required class="form-control" placeholder="Start Date">
+                <div class="col-sm-6">
+                    <datepicker date-format="dd-MM-yyyy">
+                        <input type='text' name='startdate' ng-model="edittaskContant.startdate" required class="form-control" placeholder="Start Date">
+                    </datepicker>
                     <span ng-show="editForm.startdate.$error.required && editForm.startdate.$invalid" style="color:red">Please fill out this filed</span>
                 </div>
             </div>
@@ -36,7 +48,9 @@
             <div class="row">
                 <div class="col-sm-6"><label>End Date:</label></div>
                 <div class="col-sm-6">
+                    <datepicker date-format="dd-MM-yyyy">
                     <input type='text' name='enddate' ng-model="edittaskContant.enddate" required class="form-control" placeholder="End Date">
+                    </datepicker>
                     <span ng-show="editForm.enddate.$error.required && editForm.enddate.$invalid" style="color:red">Please fill out this filed</span>
                 </div>
 
@@ -44,17 +58,21 @@
             <div class="row">
                 <div class="col-sm-6"><label>Priority:</label></div>
                 <div class="col-sm-6">
+                    <ui-select ng-model="edittaskContant.priority" name="priority">
+                        <ui-select-match placeholder="Select priority here" allow-clear="true">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
 
-                    <select ng-model="edittaskContant.priority" style="width: 268px;">
-                        <option>HIGH</option>
-                        <option>MEDIUM</option>
-                        <option>LOW</option>
-                    </select>
+                        <ui-select-choices repeat="item.value as item in priorityArray track by item.name">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-show="editForm.priority.$error.required && editForm.priority.$invalid" style="color:red">Please fill out this filed</span>
                 </div>
             </div>
 
         </div>
-            <div class="modal-footer" style="background: gainsboro">
+            <div class="modal-footer" style="background: gainsboro;margin-top: 10px">
                 <button class="btn btn-primary" type="submit">OK</button>
                 <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
             </div>
