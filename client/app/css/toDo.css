@@ -35,11 +35,12 @@ footer {
     .row.content {height:auto;}
     }
     .heading{
+            font-size: 390%;
              margin-left: 40px;
     }
     .subHeading{
-                margin-left: 80px;
-                margin-top: -10px;
+        margin-left: 200px;
+        margin-top: -10px;
     }
     .language{
         margin-left: 1110px;
