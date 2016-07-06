@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-4">
                         <a href="#" >
-                            <i tooltip-placement='top' uib-tooltip="{{selectedTooltip}}" class="fa fa-square-o fa-2x {{task.status=='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true" ng-click="markAsCompleteTask(task.name)"></i>
+                            <i tooltip-placement='top' class="fa fa-square-o fa-2x {{task.status=='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true" ng-click="markAsCompleteTask(task.name)" uib-tooltip="Mark as Complete"></i>
                             <i class="fa fa-check-square-o fa-2x {{task.status!='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
                         </a>
                     </div>

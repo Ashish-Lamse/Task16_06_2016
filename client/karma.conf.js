@@ -23,12 +23,11 @@ module.exports = function(config) {
       'module/todo/app.module.js',
       'module/todo/app.config.js',
       'module/todo/dashboard/dashboard.controller.js',
-      /*'module/todo/dashboard/dashboard.directive.js',*/
+      'module/todo/dashboard/dashboard.directive.js',
       'module/todo/dashboard/dashboard.factory.js',
-      'module/todo/test/dashboard.controller.test.js',
-        /*'module/todo/test/dashboard.directive.test.js'*/
+      'test/dashboard.controller.test.js',
+      'test/dashboard.directive.test.js'
 
-      {pattern: '*.json', watched: true, served: true, included: false}
     ],
 
 

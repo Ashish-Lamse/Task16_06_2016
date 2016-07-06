@@ -16,6 +16,10 @@
         dc.loadTasks = loadTasks;
        /* dc.filterTasks = filterTasks;*/
 
+        $scope.add=function(a,b){
+            return a+b;
+        }
+
 
         dc.myName="Ashish";
 

@@ -40,6 +40,18 @@
                    controller:function ($scope,$uibModalInstance){
                        var editTask=scope.tasks;
 
+                       $scope.statuses = [
+                           {value: 'OPENED', name: 'Opened'},
+                           {value: 'CLOSE',name:'Close'},
+                           {name:'Invalid',value: 'INVALID'},
+                           {name:'In progress',value: 'INPROGRESS'}
+                       ];
+
+                       $scope.priorityArray = [
+                           {name:'Low',value: 'LOW'},
+                           {name:'High',value: 'HIGH'},
+                           {name:'Medium',value: 'MEDIUM'}
+                       ];
 
                        $scope.edittaskContant={
                            "name": "",

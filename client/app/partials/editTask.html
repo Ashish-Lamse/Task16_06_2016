@@ -21,7 +21,6 @@
             <div class="row">
                 <div class="col-sm-6"><label>Status:</label></div>
                 <div class="col-sm-6">
-                    <!--<input type='text' name='status' ng-model="edittaskContant.status" required class="form-control" placeholder="Status">-->
                     <ui-select ng-model="edittaskContant.status" name="status">
                         <ui-select-match placeholder="Select status here" allow-clear="true">
                             <span ng-bind="$select.selected.name"></span>
