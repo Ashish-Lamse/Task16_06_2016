@@ -1,0 +1,26 @@
+<div class="col-sm-4">
+
+  <ui-select ng-model="filters.status" ng-change="filterTasks()">
+    <ui-select-match placeholder="Select status here" allow-clear="true">
+            <span ng-bind="$select.selected.name"></span>
+    </ui-select-match>
+
+    <ui-select-choices repeat="item.value as item in filterstatus track by item.name">
+        <span ng-bind="item.name"></span>
+    </ui-select-choices>
+</ui-select>
+</div>
+
+
+<div class="col-sm-4">
+    <ui-select multiple ng-model="filters.priorities" ng-change="filterTasks()">
+        <ui-select-match placeholder="Select Priorities here" allow-clear="true" >
+            <span> {{$item.name}}</span>
+        </ui-select-match>
+
+            <ui-select-choices repeat="item.value as item in filterpriority track by item.name">
+            <span ng-bind="item.name"></span>
+        </ui-select-choices>
+    </ui-select>
+
+</div>
