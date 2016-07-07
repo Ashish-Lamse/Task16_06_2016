@@ -12,7 +12,7 @@
        function linker(scope, element, attrs){
            scope.selectedTooltip="Mark as Select";
            scope.deleteTooltip="Delete Task";
-           scope.editedTooltip="Edit Task"
+           scope.editedTooltip="Edit Task";
 
            scope.tasks=$rootScope.TASKS;
 
@@ -26,7 +26,7 @@
 
             scope.editTask=function(name){
                 editTask(name);
-           }
+           };
 
            function editTask(name){
 
@@ -47,7 +47,7 @@
                            {name:'In progress',value: 'INPROGRESS'}
                        ];
 
-                       $scope.priorityArray = [
+                       scope.priorityArray = [
                            {name:'Low',value: 'LOW'},
                            {name:'High',value: 'HIGH'},
                            {name:'Medium',value: 'MEDIUM'}
@@ -60,7 +60,7 @@
                            "enddate": "",
                            "status": "",
                            "priority": ""
-                       }
+                       };
 
                        for (var i = 0; i < editTask.length; i++) {
                            if (editTask[i].name == name) {
@@ -133,7 +133,7 @@
                        }
 
                    }
-               })
+               });
            }
 
 
@@ -176,13 +176,13 @@
 
             return{
 
-                templateUrl:'../../../partials/dashboardDirective.html',
+                templateUrl:'partials/dashboardDirective.html',
                 scope:{
                     tasks:'='
                 },
                 link:linker
 
-            }
+            };
         }
 }());
 

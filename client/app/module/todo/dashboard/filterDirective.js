@@ -21,14 +21,9 @@
 
             scope.filterTasks=function(){
                 var TASKS=$rootScope.TASKS;
-
-                console.log(TASKS);
-
                 var status=scope.filters.status;
                 var priorities=scope.filters.priorities;
-
                 var filteredTasks=[];
-
 
 
                 angular.forEach(TASKS,function(task){
@@ -37,7 +32,7 @@
                             if(priority.indexOf(task.priority)!== -1){
                                 filteredTasks.push(task);
                             }
-                        })
+                        });
                     }
 
                     else if (priorities.length===0 && status && task.status === status ) {
@@ -49,7 +44,7 @@
                             if(priority.indexOf(task.priority)!== -1){
                                 filteredTasks.push(task);
                             }
-                        })
+                        });
                     }
                 });
                 if  (status || priorities.length!==0) {
@@ -58,14 +53,14 @@
                 else {
                     scope.tasks=$rootScope.TASKS;
                 }
-            }
+            };
         }
         return {
             restrict: 'EA',
             scope: {
                 tasks: '=',
                 filterstatus:'=',
-                'filterpriority':'='
+                filterpriority:'='
             },
             link: linkerFilter,
             templateUrl: 'partials/filterTask.html'

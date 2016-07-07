@@ -34,7 +34,7 @@
                     console.log(resion);
                 });
             return deferred.promise;
-        };
+        }
     }
-}())
+}());
 

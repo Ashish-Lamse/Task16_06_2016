@@ -16,5 +16,8 @@
     "angular-chart.js": "^0.10.2",
     "angularjs-datepicker": "^2.1.6",
     "jquery": "^3.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1"
   }
 }

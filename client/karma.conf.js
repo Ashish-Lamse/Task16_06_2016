@@ -27,24 +27,32 @@ module.exports = function(config) {
       'module/todo/dashboard/dashboard.factory.js',
       'test/dashboard.controller.test.js',
       'test/dashboard.directive.test.js'
-
     ],
-
-
-
 
     autoWatch : true,
 
     frameworks: ['jasmine'],
 
-    browsers : ['Firefox'],
+    browsers : ['PhantomJS'],
 
     plugins : [
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine',
+      'karma-coverage',
       'karma-junit-reporter'
     ],
+
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+      'app/module/todo/dashboard/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      type: 'html',
+      dir: 'coverage'
+    },
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',

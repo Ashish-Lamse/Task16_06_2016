@@ -13,16 +13,20 @@ angular
 
         var allTasks=$rootScope.TASKS;
         ch.statuses={
-         "OPENED":0,
+
+        "OPENED":0,
         "INPROGRESS":0,
         "INVALID":0,
         "COMPLETE":0
         };
+
         ch.priorities={
+
         "HIGH":0,
         "MEDIUM":0,
         "LOW":0
-    }
+
+    };
         angular.forEach(allTasks,function(task){
             if(task.status==='COMPLETED'){
                 ch.statuses.COMPLETE++;
@@ -48,7 +52,7 @@ angular
                 ch.priorities.LOW++;
             }
         });
-        ch.series = ['Series A','Series B','Series C','Series D'];
+
         ch.labels = ['OPENED', 'INPROGRESS', 'INVALID', 'COMPLETE'];
         ch.data = [
             [ch.statuses.OPENED,ch.statuses.INPROGRESS,ch.statuses.INVALID,ch.statuses.COMPLETE]

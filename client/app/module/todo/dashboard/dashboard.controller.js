@@ -14,11 +14,11 @@
 
         dc.tasks=[];
         dc.loadTasks = loadTasks;
-       /* dc.filterTasks = filterTasks;*/
+
 
         $scope.add=function(a,b){
             return a+b;
-        }
+        };
 
 
         dc.myName="Ashish";
@@ -46,46 +46,11 @@
         function loadTasks() {
             dashboardFactory.readTask().then(function(response){
                 $rootScope.TASKS = response;
-                console.log($rootScope.TASKS+"inside dashboard controller")
                 dc.tasks= $rootScope.TASKS;
 
             });
         }
 
-        /*function filterTasks(){
-            var TASKS=$rootScope.TASKS;
-
-            var status=dc.selectedStatus;
-            var priorities=dc.selectedPriority;
-            var filteredTasks=[];
-
-            angular.forEach(TASKS,function(task){
-                if (status && priorities.length!==0 && task.status === status.value){
-                   angular.forEach(priorities,function(priority){
-                        if(priority.value.indexOf(task.priority)!== -1){
-                            filteredTasks.push(task);
-                        }
-                    })
-                }
-
-                else if (priorities.length===0 && status && task.status === status.value ) {
-                    filteredTasks.push(task);
-                }
-                else if ( !status && priorities){
-                    angular.forEach(priorities,function(priority){
-                        if(priority.value.indexOf(task.priority)!== -1){
-                            filteredTasks.push(task);
-                        }
-                    })
-                }
-            });
-            if  (status || priorities.length!==0) {
-                dc.tasks=filteredTasks;
-            }
-            else {
-                dc.tasks=$rootScope.TASKS;
-            }
-        }*/
 
     }
 
