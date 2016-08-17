@@ -54,19 +54,23 @@
                 </div>
 
             </div>
+
             <div class="row">
                 <div class="col-sm-6"><label>Priority:</label></div>
+
                 <div class="col-sm-6">
-                    <ui-select ng-model="edittaskContant.priority" name="priority">
+
+                    <ui-select ng-model="edittaskContant.priority">
                         <ui-select-match placeholder="Select priority here" allow-clear="true">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
 
-                        <ui-select-choices repeat="item.value as item in priorityArray track by item.name">
+                        <ui-select-choices repeat="item.value as item in prioritiesValues track by item.name">
                             <span ng-bind="item.name"></span>
                         </ui-select-choices>
                     </ui-select>
-                    <span ng-show="editForm.priority.$error.required && editForm.priority.$invalid" style="color:red">Please fill out this filed</span>
+
+
                 </div>
             </div>
 

@@ -5,33 +5,14 @@
     describe('Should test dashbard directive',function(){
         var $compile,
             $scope,
-            rootScope,
             $templateCache;
 
-        var t=[{
-            "name": "Task 1",
-            "description": "Task 1 description",
-            "startdate": "01-08-2016",
-            "enddate": "01-10-2016",
-            "status": "OPENED",
-            "priority": "LOW"
-        },
-            {
-                "name"  : "Task 2",
-                "description"   : "Task 2 description",
-                "startdate" : "01-08-2016",
-                "enddate"   : "01-10-2016",
-                "status"    : "OPENED",
-                "priority"  : "HIGH"
-            }
-        ];
 
         beforeEach(module('todoApp'));
 
         beforeEach(inject(function($rootScope, _$compile_, $httpBackend, _$templateCache_){
 
             $compile = _$compile_;
-            rootScope = $rootScope;
             $scope = $rootScope.$new();
             $templateCache = _$templateCache_;
 
@@ -40,8 +21,28 @@
 
         }));
 
+        beforeEach(function(){
+            $scope.t=[{
+                "name": "Task 1",
+                "description": "Task 1 description",
+                "startdate": "01-08-2016",
+                "enddate": "01-10-2016",
+                "status": "OPENED",
+                "priority": "LOW"
+            },
+            {
+                 "name"  : "Task 2",
+                 "description"   : "Task 2 description",
+                 "startdate" : "01-08-2016",
+                 "enddate"   : "01-10-2016",
+                 "status"    : "OPENED",
+                 "priority"  : "HIGH"
+            }
+            ];
+        });
+
         function directiveElement(){
-            var element = $compile('<dashboard-directive tasks="t"></dashboard-directive>')($scope);
+            var element = $compile('<dashboard-directive tasks="$scope.t"></dashboard-directive>')($scope);
             $scope.$digest();
             return element;
         }
@@ -49,13 +50,19 @@
         it('Testing dashboard directive', inject(function ($httpBackend, $location) {
             var element = directiveElement();
             $scope.$digest();
-            expect(element[0].outerHTML).toEqual('<dashboard-directive class="ng-scope" tasks="t"></dashboard-directive>');
+            expect(element[0].outerHTML).toEqual('<dashboard-directive tasks="$scope.t" class="ng-scope"></dashboard-directive>');
+
         }));
 
         it('should check delete functionality', function () {
-            var element = directiveElement();
+            var element=$compile('<dashboard-directive></dashboard-directive>')($scope);
+            var s=element.scope();
+            $scope.$digest();
+            console.log($scope.t.length)
+           /* console.log(s.deleteTasks())*/
 
-            var isoscope=element.isolateScope();
+
+            /*s.deleteTasks();*/
         });
     });
 }());

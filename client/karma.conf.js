@@ -29,36 +29,67 @@ module.exports = function(config) {
       'test/dashboard.directive.test.js'
     ],
 
+   preprocessors: {
+      "module/todo/**/*.js": ['coverage'],
+      "partials/*.html": ['html2js']
+    },
+
     autoWatch : true,
 
     frameworks: ['jasmine'],
 
     browsers : ['PhantomJS'],
 
+    reporters : ['dots', 'junit', 'html','coverage'],
+
     plugins : [
       'karma-chrome-launcher',
       'karma-firefox-launcher',
+      'karma-phantomjs-launcher',
       'karma-jasmine',
+      'karma-junit-reporter',
+      'karma-htmlfile-reporter',
       'karma-coverage',
-      'karma-junit-reporter'
+      'karma-ng-html2js-preprocessor'
     ],
 
-    reporters: ['progress', 'coverage'],
-
-    preprocessors: {
-      'app/module/todo/dashboard/*.js': ['coverage']
-    },
-
-    coverageReporter: {
-      type: 'html',
-      dir: 'coverage'
-    },
-
     junitReporter : {
-      outputFile: 'test_out/unit.xml',
+      outputFile: 'reports/test_out/unit.xml',
       suite: 'unit'
-    }
+    },
 
+    htmlReporter: {
+      outputFile: 'reports/test_out/units.html',
+
+      // Optional
+      pageTitle: 'Unit Tests',
+      subPageTitle: 'A sample project description'
+    },
+
+    check: {
+      global: {
+        statements: 90,
+        branches: 90,
+        functions: 100,
+        lines: 90
+      },
+      each: {
+        statements: 90,
+        branches: 90,
+        functions: 100,
+        lines: 90
+      }
+    },
+
+    coverageReporter:{
+      type : 'lcov',
+      dir : 'reports/coverage/',
+      file : 'index.html'
+    },
+
+    // add the plugin settings
+    ngHtml2JsPreprocessor: {
+      stripPrefix: ''
+    }
   });
 };
-

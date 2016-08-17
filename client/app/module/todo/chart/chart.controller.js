@@ -1,6 +1,7 @@
 /**
  * Created by Ashish Lamse on 28/6/16.
  */
+'use strict';
 (function () {
 angular
     .module('todoApp')

@@ -1,7 +1,7 @@
 /**
  * Created by Ashish Lamse on 16/6/16.
  */
-
+'use strict';
 (function(){
     angular
         .module('todoApp')
@@ -14,12 +14,12 @@
 
         dc.tasks=[];
         dc.loadTasks = loadTasks;
+        dc.addNewTask=addNewTask;
 
 
         $scope.add=function(a,b){
             return a+b;
         };
-
 
         dc.myName="Ashish";
 
@@ -27,7 +27,6 @@
 
         dc.deleteTooltip='Delete Task';
         dc.selectedTooltip='Mark as Complete';
-        /*dc.selectedPriority=[];*/
 
         dc.statuses = [
             {value: 'OPENED', name: 'Opened'},
@@ -42,7 +41,6 @@
             {name:'Medium',value: 'MEDIUM'}
         ];
 
-
         function loadTasks() {
             dashboardFactory.readTask().then(function(response){
                 $rootScope.TASKS = response;
@@ -51,7 +49,9 @@
             });
         }
 
-
+        function addNewTask(){
+            dashboardFactory.addNewTask(dc);
+        }
     }
 
 }());

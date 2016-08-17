@@ -1,6 +1,7 @@
 /**
  * Created by Ashish Lamse on 30/6/16.
  */
+'use strict';
 (function(){
     angular.module('todoApp')
         .directive('dashboardDirective',dashboardDirective);
@@ -44,14 +45,17 @@
                            {value: 'OPENED', name: 'Opened'},
                            {value: 'CLOSE',name:'Close'},
                            {name:'Invalid',value: 'INVALID'},
-                           {name:'In progress',value: 'INPROGRESS'}
+                           {name:'In progress',value: 'INPROGRESS'},
+                           {name:'Completed',value: 'COMPLETED'}
                        ];
 
-                       scope.priorityArray = [
+                        $scope.prioritiesValues = [
                            {name:'Low',value: 'LOW'},
                            {name:'High',value: 'HIGH'},
                            {name:'Medium',value: 'MEDIUM'}
                        ];
+
+
 
                        $scope.edittaskContant={
                            "name": "",
@@ -79,7 +83,7 @@
                        $scope.cancel=cancel;
 
                        function ok(){
-                           console.log($scope.edittaskContant.name);
+
                            for (var i = 0; i < editTask.length; i++) {
                                if (editTask[i].name == name) {
                                    editTask[i].name=$scope.edittaskContant.name;

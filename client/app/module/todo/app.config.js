@@ -1,11 +1,13 @@
 /**
  * Created by Ashish Lamse on 16/6/16.
  */
+'use strict';
+
 angular
     .module('todoApp')
 
-    .config(['$routeProvider', '$locationProvider','$translateProvider','ChartJsProvider', function($routeProvider,$locationProvider,$translateProvider,ChartJsProvider){
-
+    .config(['$routeProvider', '$locationProvider','$translateProvider','ChartJsProvider',
+        function($routeProvider,$locationProvider,$translateProvider,ChartJsProvider){
         ChartJsProvider.setOptions({
             colours: ['#ff6666', '#80d4ff', '#9fdfbf'],
             responsive: false
@@ -14,7 +16,6 @@ angular
         ChartJsProvider.setOptions('Line', {
             datasetFill: false
         });
-
 
         $routeProvider
             .when('/',{
@@ -38,6 +39,12 @@ angular
                 controllerAs:"ch"
             })
 
+            .when('/tobeImp',{
+                templateUrl:'partials/tobeImplemented.html',
+                controller:'tobeController',
+                controllerAs:'tobe'
+            })
+
             .otherwise({
                 redirectTo:'/dashboard'
             });
@@ -59,7 +66,8 @@ angular
             'CompleteConfirm':'Are you sure want to mark task as completed..?',
             'DeleteTask':'Delete The Task',
             'DeleteConfirm':'Are You sure want to delete the task..?',
-            'EditTask':"Edit Task"
+            'EditTask':"Edit Task",
+            'AddTask':"Add Task"
 
         });
 
@@ -80,7 +88,8 @@ angular
             'CompleteConfirm':'¿Seguro desea marcar tarea como completada .. ?',
             'DeleteTask':'Eliminar la tarea',
             'DeleteConfirm':'¿Usted está seguro de querer eliminar la tarea .. ?',
-            'EditTask':"Editar tarea"
+            'EditTask':"Editar tarea",
+            'AddTask':"Add Task"
 
         });
 
