@@ -1,7 +1,7 @@
 <div class="col-sm-6">
 
-  <ui-select ng-model="filters.status" ng-change="filterTasks()">
-    <ui-select-match placeholder="Select status here" allow-clear="true">
+  <ui-select ng-model="filters.status" theme="bootstrap" ng-change="filterTasks()">
+      <ui-select-match  placeholder="Select status here" allow-clear="true">
             <span ng-bind="$select.selected.name"></span>
     </ui-select-match>
 

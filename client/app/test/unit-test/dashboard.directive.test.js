@@ -59,10 +59,7 @@
             var s=element.scope();
             $scope.$digest();
             console.log($scope.t.length)
-           /* console.log(s.deleteTasks())*/
 
-
-            /*s.deleteTasks();*/
         });
     });
 }());

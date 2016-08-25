@@ -19,7 +19,6 @@ describe('This will test dashboard controller functionality operation',function 
 
     it('should test controller',function(){
         var vm = controller("dashboardController",{$scope:scope,dashboardFactory:dashboard,$httpBackend:httpBackend});
-        expect(scope.add(2,3)).toEqual(5);
         httpBackend.expectGET("todotasks.json").respond("Response found!");
         httpBackend.flush();
     });

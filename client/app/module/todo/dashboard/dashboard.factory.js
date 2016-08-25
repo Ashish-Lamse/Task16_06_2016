@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by Ashish Lamse on 16/6/16.
  */
 'use strict';
@@ -48,7 +48,6 @@
                     };
 
                     $scope.ok=function(){
-
                         var newTask={
                             "name": "Task "+(dc.tasks.length+1),
                             "description": $scope.addTask.description,
@@ -69,19 +68,14 @@
         }
 
         function readTask(){
-
             var deferred = $q.defer();
-
             $http.get('todotasks.json').success(
                 function (response) {
                     Tasks=response.todotasks;
-
                     deferred.resolve(response.todotasks);
                 },
-
                 function(resion){
                     deferred.reject("reject");
-
                 });
             return deferred.promise;
         }

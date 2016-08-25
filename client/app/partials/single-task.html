@@ -1,0 +1,40 @@
+<div class="{{task.priority}}">
+    <div class="row">
+        <div class="col-sm-8" style="border-bottom: 1px solid #ccc;margin-left:10px"><h4 class="text-left col-md-1">{{ 'TITLE' | translate }}</h4></div>
+
+        <div class="col-sm-3">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="#"   ng-click="deleteTasks(task.name)" class="{{task.status=='COMPLETED'?'ng-hide':'a'}}">
+                        <i tooltip-placement='top' uib-tooltip="{{deleteTooltip}}" class="fa fa-trash fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="#" >
+                        <i tooltip-placement='top' class="fa fa-square-o fa-2x {{task.status=='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true" ng-click="markAsCompleteTask(task.name)" uib-tooltip="Mark as Complete"></i>
+                        <i class="fa fa-check-square-o fa-2x {{task.status!='COMPLETED'?'ng-hide':'a'}}" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="col-sm-4">
+                    <a href="#" ng-click="editTask(task.name)">
+                        <i class="fa fa-pencil fa-2x" aria-hidden="true" uib-tooltip="{{editedTooltip}}"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <br class="text-left innerTask" style="line-height: 30px">
+
+        <b>{{ 'TaskName' | translate }}:</b><label>{{task.name}}</label></br>
+        <b>{{ 'Description' | translate }}:</b><label>{{task.description}}</label></br>
+        <b>{{ 'Status' | translate }}:</b><label>{{task.status | capitalize}}</label></br>
+        <b>{{ 'Start_Date' | translate }}:</b><label>{{startDate() | date}}</label>
+        <b>{{ 'End_Date' | translate }}:</b><label>{{endDate() | date}}</label></br>
+        <b>{{ 'Priority' | translate }}:</b><label>{{task.priority | capitalize}}</label>
+    </div>
+
+</div>

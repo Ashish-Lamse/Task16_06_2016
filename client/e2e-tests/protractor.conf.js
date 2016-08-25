@@ -1,17 +1,18 @@
+
 //jshint strict: false
 exports.config = {
 
   allScriptsTimeout: 11000,
 
   specs: [
-    '*.js'
+    'spec.js'
   ],
 
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'firefox'
   },
 
-  baseUrl: 'http://localhost:8000/',
+  baseUrl: 'http://localhost:5000',
 
   framework: 'jasmine',
 

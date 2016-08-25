@@ -15,18 +15,21 @@ module.exports = function(config) {
       'bower_components/angularjs-datepicker/src/js/angular-datepicker.js',
       'bower_components/Chart.js/Chart.js',
       'bower_components/angular-chart.js/dist/angular-chart.min.js',
-
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
-
-
       'module/todo/app.module.js',
       'module/todo/app.config.js',
       'module/todo/dashboard/dashboard.controller.js',
       'module/todo/dashboard/dashboard.directive.js',
       'module/todo/dashboard/dashboard.factory.js',
-      'test/dashboard.controller.test.js',
-      'test/dashboard.directive.test.js'
+
+      'module/todo/**/*.js',
+
+
+      'test/unit-test/dashboard.controller.test.js',
+      'test/unit-test/dashboard.directive.test.js',
+        'test/unit-test/comman.controller.test.js'
+
     ],
 
    preprocessors: {

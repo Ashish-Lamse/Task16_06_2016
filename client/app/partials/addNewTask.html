@@ -1,0 +1,87 @@
+<div>
+    <div class="modal-header text-center" style="background: gainsboro">
+        <h3 class="modal-title">{{'AddTask'|translate}}</h3>
+    </div>
+
+    <div class="modal-body" style="line-height: 35px">
+        <form role="form" name="editForm" ng-submit="ok()">
+            <div>
+                <div class="row">
+                    <div class="col-sm-6"><label>Task Name:</label></div>
+                    <div class="col-sm-6"> <input type='text' name='taskname' ng-model="addTask.name" required class="form-control" placeholder="Task Name" ng-disabled="true">
+                        <!--<span ng-show="editForm.taskname.$error.required && editForm.taskname.$invalid" style="color: red">Please fill out this filed</span>-->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6"><label>Description:</label></div>
+                    <div class="col-sm-6"><input type='text' name='description' ng-model="addTask.description" required class="form-control" placeholder="Description">
+                        <span ng-show="editForm.description.$error.required && editForm.description.$invalid" style="color:red">Please fill out this filed</span></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6"><label>Status:</label></div>
+                    <div class="col-sm-6">
+                        <ui-select ng-model="addTask.status" name="status">
+                            <ui-select-match placeholder="Select status here" allow-clear="true">
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+
+                            <ui-select-choices repeat="item.value as item in statuses track by item.name">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="editForm.status.$error.required && editForm.status.$invalid" style="color:red">Please fill out this filed</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6"><label>Start Date:</label></div>
+                    <div class="col-sm-6">
+                        <datepicker date-format="dd-MM-yyyy">
+                            <input type='text' name='startdate' ng-model="addTask.startdate" required class="form-control" placeholder="Start Date">
+                        </datepicker>
+                        <span ng-show="editForm.startdate.$error.required && editForm.startdate.$invalid" style="color:red">Please fill out this filed</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6"><label>End Date:</label></div>
+                    <div class="col-sm-6">
+                        <datepicker date-format="dd-MM-yyyy">
+                            <input type='text' name='enddate' ng-model="addTask.enddate" required class="form-control" placeholder="End Date">
+                        </datepicker>
+                        <span ng-show="editForm.enddate.$error.required && editForm.enddate.$invalid" style="color:red">Please fill out this filed</span>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6"><label>Priority:</label></div>
+
+                    <div class="col-sm-6">
+
+                        <ui-select ng-model="addTask.priority">
+                            <ui-select-match placeholder="Select priority here" allow-clear="true">
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+
+                            <ui-select-choices repeat="item.value as item in prioritiesValues track by item.name">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="background: gainsboro;margin-top: 10px">
+                <button class="btn btn-primary" type="submit">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="canc()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>

@@ -17,12 +17,6 @@
         dc.addNewTask=addNewTask;
 
 
-        $scope.add=function(a,b){
-            return a+b;
-        };
-
-        dc.myName="Ashish";
-
         loadTasks();
 
         dc.deleteTooltip='Delete Task';
