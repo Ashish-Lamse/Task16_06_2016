@@ -19,17 +19,13 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'module/todo/app.module.js',
       'module/todo/app.config.js',
-      'module/todo/dashboard/dashboard.controller.js',
-      'module/todo/dashboard/dashboard.directive.js',
-      'module/todo/dashboard/dashboard.factory.js',
-
       'module/todo/**/*.js',
-
-
-      'test/unit-test/dashboard.controller.test.js',
-      'test/unit-test/dashboard.directive.test.js',
-        'test/unit-test/comman.controller.test.js'
-
+      'test/unit-test/dashboard-spec/dashboard.controller.test.js',
+      'test/unit-test/dashboard-spec/dashboard.directive.test.js',
+       'test/unit-test/comman-spec/comman.controller.test.js',
+        'test/unit-test/dashboard-spec/dashboard.filter.firstCapitalFilter.js',
+        'test/unit-test/dashboard-spec/dashboard.directive.filterDirective.test.js',
+        'test/unit-test/chart-modue/chart.controller.test.js'
     ],
 
    preprocessors: {

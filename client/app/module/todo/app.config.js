@@ -2,13 +2,46 @@
  * Created by Ashish Lamse on 16/6/16.
  */
 'use strict';
-
 angular
     .module('todoApp')
 
     .config(['$routeProvider', '$locationProvider','$translateProvider','ChartJsProvider',
         function($routeProvider,$locationProvider,$translateProvider,ChartJsProvider){
-        ChartJsProvider.setOptions({
+
+            $routeProvider
+                .when('/',{
+                    templateUrl:'partials/dashboard.html',
+                    controller:'dashboardController'
+                })
+
+                .when('/dashboard',{
+                    templateUrl:'partials/dashboard.html',
+                    controller:'dashboardController',
+                    controllerAs:"dc"
+                })
+
+                .when('/home',{
+                    templateUrl:'partials/home.html'
+                })
+
+                .when('/chart',{
+                    templateUrl:'partials/chart.html',
+                    controller:'chartController',
+                    controllerAs:"ch"
+                })
+
+                .when('/tobeImp',{
+                    templateUrl:'partials/tobeImplemented.html',
+                    controller:'tobeController',
+                    controllerAs:'tobe'
+                })
+
+                .otherwise({
+                    redirectTo:'/dashboard'
+                });
+
+
+            ChartJsProvider.setOptions({
             colours: ['#ff6666', '#80d4ff', '#9fdfbf'],
             responsive: false
         });
@@ -17,37 +50,6 @@ angular
             datasetFill: false
         });
 
-        $routeProvider
-            .when('/',{
-                templateUrl:'partials/dashboard.html',
-                controller:'dashboardController'
-            })
-
-            .when('/dashboard',{
-                templateUrl:'partials/dashboard.html',
-                controller:'dashboardController',
-                controllerAs:"dc"
-            })
-
-            .when('/home',{
-                templateUrl:'partials/home.html'
-            })
-
-            .when('/chart',{
-                templateUrl:'partials/chart.html',
-                controller:'chartController',
-                controllerAs:"ch"
-            })
-
-            .when('/tobeImp',{
-                templateUrl:'partials/tobeImplemented.html',
-                controller:'tobeController',
-                controllerAs:'tobe'
-            })
-
-            .otherwise({
-                redirectTo:'/dashboard'
-            });
 
         $translateProvider.translations('en', {
             TaskName:"Task Name",

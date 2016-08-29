@@ -16,6 +16,7 @@
         return {
             readTask : readTask,
             addNewTask:addNewTask
+
         };
 
         function addNewTask(dc){

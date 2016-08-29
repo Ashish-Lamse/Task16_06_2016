@@ -17,8 +17,6 @@
                 priorities: []
             };
 
-
-
             scope.filterTasks=function(){
                 var TASKS=$rootScope.TASKS;
                 var status=scope.filters.status;

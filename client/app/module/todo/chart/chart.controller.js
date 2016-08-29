@@ -7,9 +7,9 @@ angular
     .module('todoApp')
     .controller('chartController', chartController);
 
-    chartController.$inject=['$scope','$rootScope'];
+    chartController.$inject=['$rootScope'];
 
-    function chartController($scope,$rootScope){
+    function chartController($rootScope){
         var ch=this;
 
         var allTasks=$rootScope.TASKS;

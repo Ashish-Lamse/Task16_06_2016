@@ -15,8 +15,6 @@
            scope.deleteTooltip="Delete Task";
            scope.editedTooltip="Edit Task";
            scope.tasks=$rootScope.TASKS;
-
-
        }
 
             return{
@@ -26,7 +24,6 @@
                     tasks:'='
                 },
                 link:linker
-
             };
         }
 }());

@@ -1,4 +1,6 @@
-
+.modal-body {
+    line-height: 34px;
+}
     /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
     margin-bottom: 0;
