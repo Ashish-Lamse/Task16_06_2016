@@ -3,28 +3,66 @@
  */
 'use strict';
 (function(){
-
     angular
         .module('todoApp')
         .factory('dashboardFactory', dashboardFactory);
 
-    dashboardFactory.$inject = ['$http', '$q','$uibModal'];
+    dashboardFactory.$inject = ['$http', '$q','$uibModal','$rootScope'];
 
 
-    function dashboardFactory($http,$q,$uibModal){
+    function dashboardFactory($http,$q,$uibModal,$rootScope){
         var Tasks;
         return {
             readTask : readTask,
-            addNewTask:addNewTask
-
+            addNewTask:addNewTask,
+            filterAllTasks:filterAllTasks
         };
+
+        function filterAllTasks(data,tasks){
+
+                var TASKS=$rootScope.TASKS;
+                var status=data.status;
+                var priorities=data.priorities;
+                var filteredTasks=[];
+
+
+                angular.forEach(TASKS,function(task){
+                    if (status && priorities.length!==0 && task.status === status){
+                        angular.forEach(priorities,function(priority){
+                            if(priority.indexOf(task.priority)!== -1){
+                                filteredTasks.push(task);
+                            }
+                        });
+                    }
+
+                    else if (priorities.length===0 && status && task.status === status ) {
+                        filteredTasks.push(task);
+                    }
+
+                    else if ( !status && priorities){
+                        angular.forEach(priorities,function(priority){
+                            if(priority.indexOf(task.priority)!== -1){
+                                filteredTasks.push(task);
+                            }
+                        });
+                    }
+                });
+                if  (status || priorities.length!==0) {
+                    tasks=filteredTasks;
+                }
+                else {
+                    tasks=$rootScope.TASKS;
+                }
+
+            return tasks;
+            }
 
         function addNewTask(dc){
             $uibModal.open({
-                animation:dc.animationsEnabled,
+
                 templateUrl:'partials/addNewTask.html',
 
-                controller:function($scope,$uibModalInstance){
+                controller:function UIModalController($scope,$uibModalInstance){
                     $scope.statuses = [
                         {value: 'OPENED', name: 'Opened'},
                         {value: 'CLOSE',name:'Close'},
@@ -57,7 +95,7 @@
                             "status": $scope.addTask.status,
                             "priority": $scope.addTask.priority
                         };
-                        dc.tasks.push(newTask);
+                       tasks.push(newTask);
                         $uibModalInstance.close();
                     };
 
@@ -66,6 +104,7 @@
                     };
                 }
             });
+
         }
 
         function readTask(){

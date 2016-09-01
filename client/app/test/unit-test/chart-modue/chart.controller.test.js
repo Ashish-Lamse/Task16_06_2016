@@ -5,7 +5,6 @@
 
 describe('cartController', function() {
     beforeEach(module('todoApp'));
-
     var $controller;
     var $rootScope;
 

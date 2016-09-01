@@ -42,10 +42,11 @@
 
             });
         }
-
         function addNewTask(){
             dashboardFactory.addNewTask(dc);
         }
+
+
     }
 
 }());

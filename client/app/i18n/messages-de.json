@@ -1,0 +1,21 @@
+{
+"TaskName":"Task Name",
+"TITLE": "Título",
+"Description": "Descripción",
+"Status": "Estado",
+"Start_Date": "Fecha de inicio",
+"End_Date": "Fecha final",
+"Priority":"Prioridad",
+"English":"Inglés",
+"Spanish":"Español",
+"Manage_Your_Tasks":"Administrar sus tareas",
+"Add_New_task":"Añadir nueva tarea",
+"ShowChart":"mostrar tarea en la tabla",
+"CompleteTask":"Tarea completa",
+"CompleteConfirm":"¿Seguro desea marcar tarea como completada .. ?",
+"DeleteTask":"Eliminar la tarea",
+"DeleteConfirm":"¿Usted está seguro de querer eliminar la tarea .. ?",
+"EditTask":"Editar tarea",
+"AddTask":"Add Task"
+
+}

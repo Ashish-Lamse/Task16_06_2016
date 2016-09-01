@@ -3,7 +3,8 @@
  */
 'use strict';
 (function(){
-    angular.module('todoApp',['ngRoute','pascalprecht.translate','ui.select','ui.bootstrap','chart.js','ui.router','720kb.datepicker']);
+    angular.module('todoApp',['ngRoute','pascalprecht.translate','ui.select','ui.bootstrap',
+        'chart.js','ui.router','720kb.datepicker','ngAnimate']);
 }());
 
 

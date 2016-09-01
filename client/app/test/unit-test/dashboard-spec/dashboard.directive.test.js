@@ -5,7 +5,8 @@
     describe('Should test dashbard directive',function(){
         var $compile,
             $scope,
-            $templateCache;
+            $templateCache,
+            directiveElem;
 
 
         beforeEach(module('todoApp'));
@@ -19,27 +20,17 @@
             $templateCache.put('partials/dashboardDirective.html');
             $httpBackend.whenGET('partials/dashboardDirective.html').respond($templateCache.get('partials/dashboardDirective.html'));
 
+            $scope.selectedTooltip='';
+            $scope.deleteTooltip='';
+            $scope.editedTooltip='';
+            $scope.tasks='';
+
+
+            directiveElem=directiveElement();
+
         }));
 
-        beforeEach(function(){
-            $scope.t=[{
-                "name": "Task 1",
-                "description": "Task 1 description",
-                "startdate": "01-08-2016",
-                "enddate": "01-10-2016",
-                "status": "OPENED",
-                "priority": "LOW"
-            },
-            {
-                 "name"  : "Task 2",
-                 "description"   : "Task 2 description",
-                 "startdate" : "01-08-2016",
-                 "enddate"   : "01-10-2016",
-                 "status"    : "OPENED",
-                 "priority"  : "HIGH"
-            }
-            ];
-        });
+
 
         function directiveElement(){
             var element = $compile('<dashboard-directive tasks="$scope.t"></dashboard-directive>')($scope);
@@ -55,11 +46,11 @@
         }));
 
         it('should check delete functionality', function () {
-            var element=$compile('<dashboard-directive></dashboard-directive>')($scope);
-            var s=element.scope();
-            $scope.$digest();
-            console.log($scope.t.length)
+           var isolatedScope=directiveElem.scope();
 
+            isolatedScope.selectedTooltip='ASH';
+
+            expect(isolatedScope.selectedTooltip).toBe('ASH');
         });
     });
 }());

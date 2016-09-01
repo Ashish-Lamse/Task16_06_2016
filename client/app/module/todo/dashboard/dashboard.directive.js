@@ -6,9 +6,9 @@
     angular.module('todoApp')
         .directive('dashboardDirective',dashboardDirective);
 
-    dashboardDirective.$inject=['$uibModal','$rootScope'];
+    dashboardDirective.$inject=['$rootScope'];
 
-    function dashboardDirective($uibModal,$rootScope){
+    function dashboardDirective($rootScope){
 
        function linker(scope, element, attrs){
            scope.selectedTooltip="Mark as Select";

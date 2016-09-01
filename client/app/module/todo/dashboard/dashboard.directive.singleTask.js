@@ -9,24 +9,16 @@
             function link(scope,ele,attrs){
                 scope.startDate=function(){
                     var dateString = scope.task.startdate; // Oct 23
-
                     var dateParts = dateString.split("-");
-
                     var dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // month is 0-based
-
                     return dateObject
                 };
 
                 scope.endDate=function(){
-
                     var dateString = scope.task.enddate; // Oct 23
-
                     var dateParts = dateString.split("-");
-
                     var dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // month is 0-based
-
                     return dateObject
-
                 };
 
                 scope.deleteTasks = function(name) {
@@ -42,8 +34,6 @@
                 };
 
                 function editTask(name){
-
-
                     $uibModal.open({
 
                         animation: scope.animationsEnabled,
