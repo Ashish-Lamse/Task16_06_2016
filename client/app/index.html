@@ -18,14 +18,27 @@
 <body style="background-color: lightcyan">
 <nav class="navbar todoHeader" ng-controller="commonController">
     <div class="row">
-        <div class="col-sm-10">
+        <div class="col-sm-9">
             <h1 class="heading"><b>TODOApp</b></h1>
             <h5 class="subHeading">{{'Manage_Your_Tasks'|translate}}</h5>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <b>
-                <span><a ng-click="changeLanguage('en')">{{'English'|translate}}</a>&nbsp;|&nbsp;<a ng-click="changeLanguage('de')">{{'Spanish'|translate}}</a>
-                    </a></span>
+                <span>
+
+                    <div class="dropdown1">
+                        <a href=""><i class="fa fa-language fa-2x" aria-hidden="true"></i>
+                        Language</a>&nbsp;&nbsp;&nbsp;
+
+                        <div class="dropdown-content1">
+                             <a href="" ng-click="changeLanguage('en')">{{'English'|translate}}</a>
+                             <a href="" ng-click="changeLanguage('de')">{{'Spanish'|translate}}</a>
+                        </div>
+                    </div>
+
+                    <a href="/login"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                        Signout</a>
+                </span>
             </b>
         </div>
 
@@ -61,6 +74,7 @@
 <script src="bower_components/Chart.js/Chart.js"></script>
 <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 <script src="bower_components/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 
 
 <!--custom script-->
@@ -77,10 +91,13 @@
 <script src="module/todo/comman/comman.controller.js"></script>
 <script src="module/todo/comman/comman.factory.js"></script>
 <script src="module/todo/chart/chart.controller.js"></script>
-
-
 <script src="module/todo/dashboard/dashboard.filter.firstCapital.js"></script>
 <script src="module/todo/dashboard/dashboard.directive.singleTask.js"></script>
+
+<!--Login Module-->
+<script src="module/todo/login/login.module.loginModule.js"></script>
+<script src="module/todo/login/login.service.authenticationService.js"></script>
+<script src="module/todo/login/login.controller.authenticationController.js"></script>
 
 </body>
 </html>

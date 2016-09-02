@@ -20,6 +20,7 @@
 
         function filterAllTasks(data,tasks){
 
+            console.log('sukesh called++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
                 var TASKS=$rootScope.TASKS;
                 var status=data.status;
                 var priorities=data.priorities;

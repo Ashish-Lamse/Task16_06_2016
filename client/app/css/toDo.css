@@ -56,10 +56,11 @@ footer {
     #footer {
 
         left:0px;
-        bottom:0px;
-        width:100%;
         background:#999;
         border-top: 1px solid black;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
 
     /*!* IE 6 *!
@@ -67,3 +68,33 @@ footer {
         position:absolute;
         !*top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');*!
     }*/
+
+/*for drop down css*/
+
+.dropdown1 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+
+.dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+
+

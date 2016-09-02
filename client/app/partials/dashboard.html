@@ -8,8 +8,14 @@
                         <div class="col-sm-8">
                              <filter-directive tasks="dc.tasks" filterstatus="dc.statuses" filterpriority="dc.priorityArray"></filter-directive>
                         </div>
-                        <div class="col-sm-2">
-                         <b>  <a href="chart">Show Tasks on chart</a></b>
+                        <div class="col-sm-2 dropdown1">
+                         <b>  <a href="">Show Tasks on chart</a></b>
+                            <div class="dropdown-content1" style="z-index: 1">
+                                <a  href="barchart">{{'Barchart'|translate}}&nbsp;&nbsp;<i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <a  href="piechart">{{'Piechart'|translate}}&nbsp;&nbsp;<i class="fa fa-pie-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
 
                         <div class="col-sm-2">
@@ -20,7 +26,7 @@
 
             <hr>
 
-            <div class="row">
+            <div class="row" style="margin-bottom: 70px">
                 <dashboard-directive tasks="dc.tasks"></dashboard-directive>
             </div>
 

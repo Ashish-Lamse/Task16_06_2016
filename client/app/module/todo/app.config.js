@@ -24,8 +24,14 @@ angular
                     templateUrl:'partials/home.html'
                 })
 
-                .when('/chart',{
-                    templateUrl:'partials/chart.html',
+                .when('/piechart',{
+                    templateUrl:'partials/piechart.html',
+                    controller:'chartController',
+                    controllerAs:"ch"
+                })
+
+                .when('/barchart',{
+                    templateUrl:'partials/barchart.html',
                     controller:'chartController',
                     controllerAs:"ch"
                 })
@@ -36,6 +42,11 @@ angular
                     controllerAs:'tobe'
                 })
 
+                .when('/login', {
+                    controller: 'LoginController',
+                    templateUrl: 'partials/loginView.html',
+                    hideMenus: true
+                })
                 .otherwise({
                     redirectTo:'/dashboard'
                 });
@@ -51,7 +62,7 @@ angular
         });
 
             $translateProvider.translations('de', {
-                "TaskName":"Task Name",
+                "TaskName":"Nombre de la tarea",
                 "TITLE": "Título",
                 "Description": "Descripción",
                 "Status": "Estado",
@@ -68,7 +79,8 @@ angular
                 "DeleteTask":"Eliminar la tarea",
                 "DeleteConfirm":"¿Usted está seguro de querer eliminar la tarea .. ?",
                 "EditTask":"Editar tarea",
-                "AddTask":"Add Task"
+                "AddTask":"Add Task",
+                "Barchart":"Gráfico de barras"
 
             });
 
@@ -90,7 +102,8 @@ angular
                 "DeleteTask":"Delete The Task",
                 "DeleteConfirm":"Are You sure want to delete the task..?",
                 "EditTask":"Edit Task",
-                "AddTask":"Add Task"
+                "AddTask":"Add Task",
+                "Barchart": "Barchart"
             });
 
 
